@@ -4,21 +4,24 @@
 #include <chrono>
 #include <SDL.h>
 
+#include "ThreadPool.h"
 #include "geometry.h"
 #include "Ray.h"
 #include "Utils.h"
 
 #include "Camera.h"
+#include "model.h"
 #include "Collideable.h"
 #include "Collideable_list.h"
 #include "Material.h"
 #include "Sphere.h"
+#include "Triangle.h"
 
 #define M_PI 3.14159265359
 
 SDL_Window* window;
 SDL_Renderer* renderer;
-SDL_Surface* screen;
+SDL_Surface* screenSurface;
 
 void init() {
     SDL_Init(SDL_INIT_VIDEO);
@@ -32,7 +35,7 @@ void init() {
         0
     );
 
-    screen = SDL_GetWindowSurface(window);
+    screenSurface = SDL_GetWindowSurface(window);
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_SOFTWARE);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
@@ -120,6 +123,40 @@ Colour ray_colour(const Ray& _ray, const Collideable& _world, int _depth) {
     return (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
 }
 
+void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _spp, int _maxDepth, Camera* _camera) {
+    const float aspectRatio = 16.0 / 9;
+    const int imageWidth = _screen->w;
+    const int imageHeight = static_cast<int> (imageWidth / aspectRatio);
+    
+    const Colour black(0);
+    Colour pix_col(black);
+
+    for (int x = 0; x < _screen->w; ++x) {
+        pix_col = black;
+
+        for (int s = 0; s < _spp; s++) {
+            auto u = double(x + Utils::random_double()) / (imageWidth - 1);
+            auto v = double(_y + Utils::random_double()) / (imageHeight - 1);
+
+            Ray ray = _camera->Get_Ray(u, v);
+
+            // Accumulate Colours over Samples.
+            pix_col = pix_col + ray_colour(ray, _world, _maxDepth);
+        }
+
+        pix_col /= 255.f * _spp;
+        pix_col.x = sqrt(pix_col.x);
+        pix_col.y = sqrt(pix_col.y);
+        pix_col.z = sqrt(pix_col.z);
+        pix_col *= 255;
+
+        // Scale Colour Values According to Provided Sample Per Pixel (spp).
+        Uint32 colour = SDL_MapRGB(screenSurface->format, pix_col.x, pix_col.y, pix_col.z);
+
+        putpixel(screenSurface, x, _y, colour);
+    }
+}
+
 Collideable_List random_scene() {
     Collideable_List world_;
 
@@ -174,6 +211,60 @@ Collideable_List random_scene() {
     return world_;
 }
 
+Collideable_List testModel_scene() {
+    Collideable_List world_;
+
+    Model* model = new Model("./Assets/Models/cc.obj");
+
+    auto mat1 = std::make_shared<Dielectric>(1.5);
+    auto mat2 = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
+    auto mat3 = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
+
+    Vec3f transform(0, 0.8, 0);
+    auto glass = std::make_shared<Dielectric>(1.5);
+    for (uint32_t i = 0; i < model->nfaces(); ++i)
+    {
+        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
+        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
+        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
+
+        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat1));
+        std::cout << "Added Model 1 Triangle: " << i << ". to Scene" << std::endl;
+    }
+
+    /*
+    transform = Vec3f(1.2, 0.8, 0);
+    auto diffuse = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
+    for (uint32_t i = 0; i < model->nfaces(); ++i)
+    {
+        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
+        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
+        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
+
+        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat2));
+        std::cout << "Added Model 2 to Scene" << std::endl;
+    }
+
+    transform = Vec3f(-1.2, 0.8, 0);
+    auto metal = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
+    for (uint32_t i = 0; i < model->nfaces(); ++i)
+    {
+        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
+        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
+        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
+
+        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat3));
+        std::cout << "Added Model 3 to Scene" << std::endl;
+    }
+    */
+
+    auto groundMat = std::make_shared<Lambertian>(Colour(0.5));
+    world_.Add(std::make_shared<Sphere>(Point3f(0, -1000, 0), 1000, groundMat));
+
+
+    return world_;
+}
+
 int main(int argc, char **argv)
 {
     // initialise SDL2
@@ -183,7 +274,7 @@ int main(int argc, char **argv)
 
     // Image Variables
     const auto aspect_ratio = 16.0 / 9.0;
-    const int image_width = screen->w;
+    const int image_width = screenSurface->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
     const int spp = 4;
     const int max_depth = 50;
@@ -199,16 +290,16 @@ int main(int argc, char **argv)
     auto vertical = Vec3f(0, viewport_height, 0);
     auto lower_left_corner = origin - horizontal / 2 - vertical / 2 - Vec3f(0, 0, focal_length);
 
-    Point3f cam_lookFrom(13, 2, 3);
-    Point3f cam_lookAt(0);
+    Point3f cam_position(13, 2, 3);
+    Point3f cam_lookAtPosition(0);
     Vec3f cam_vup(0, 1, 0);
     auto cam_distanceToFocus = 10.0;
     auto aperture = 0.15;
 
-    Camera camera(cam_lookFrom, cam_lookAt, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
+    Camera camera(cam_position, cam_lookAtPosition, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = random_scene();
+    Collideable_List world = testModel_scene();
 
     // -- //
 
@@ -226,13 +317,14 @@ int main(int argc, char **argv)
         auto t_start = std::chrono::high_resolution_clock::now();
 
         // clear back buffer, pixel data on surface and depth buffer (as movement)
-        SDL_FillRect(screen, nullptr, SDL_MapRGB(screen->format, 0, 0, 0));
+        SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0, 0, 0));
         SDL_RenderClear(renderer);
 
-        for (int y = screen->h-1; y >= 0; --y) {
+        
+        for (int y = screenSurface->h-1; y >= 0; --y) {
             std::cerr << "\rScanlines Remaining: " << y << std::flush;
             
-            for (int x = 0; x < screen->w; ++x) {
+            for (int x = 0; x < screenSurface->w; ++x) {
                 pix_col = black;
 
                 for (int s = 0; s < spp; s++) {
@@ -252,21 +344,38 @@ int main(int argc, char **argv)
                 pix_col *= 255;
 
                 // Scale Colour Values According to Provided Sample Per Pixel (spp).
-                Uint32 colour = SDL_MapRGB(screen->format, pix_col.x, pix_col.y, pix_col.z);
-                putpixel(screen, x, y, colour);
+                Uint32 colour = SDL_MapRGB(screenSurface->format, pix_col.x, pix_col.y, pix_col.z);
+                putpixel(screenSurface, x, y, colour);
             }
         }
+               
+
+        /*
+        {
+            t_start = std::chrono::high_resolution_clock::now();
+            ThreadPool pool(std::thread::hardware_concurrency());
+
+            int start = screenSurface->h - 1;
+            int step = screenSurface->h / std::thread::hardware_concurrency();
+            for (int y = 0; y < screenSurface->h - 1; y++)
+            {
+                std::cerr << "\rScanlines Remaining: " << y << std::flush;
+                pool.Enqueue(std::bind(ThreadedRender, screenSurface, world, y, spp, max_depth, &camera));
+            }
+
+        }
+        */
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
-        std::cerr << "Frame render time:  " << passedTime << " ms" << std::endl;
+        std::cerr << "\nFrame render time:  " << passedTime << " ms" << std::endl;
 
-        SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screen);
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screenSurface);
         if (texture == NULL) {
             fprintf(stderr, "CreateTextureFromSurface failed: %s\n", SDL_GetError());
             exit(1);
         }
-        SDL_FreeSurface(screen);
+        SDL_FreeSurface(screenSurface);
 
         SDL_RenderCopyEx(renderer, texture, nullptr, nullptr, 0, 0, SDL_FLIP_VERTICAL);
         SDL_RenderPresent(renderer);
