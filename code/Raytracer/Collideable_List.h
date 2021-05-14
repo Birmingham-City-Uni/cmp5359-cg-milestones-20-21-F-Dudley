@@ -43,6 +43,24 @@ public:
 		return hit_occured;
 	}
 
+	inline virtual bool Bounding_Box(AABB& _outputBox) const override {
+
+		if (objects.empty()) return false;
+
+		AABB tmpBox;
+		bool firstBox = true;
+
+		for (const auto& object : objects) {
+
+			if (!object->Bounding_Box(tmpBox)) return false;
+
+			_outputBox = firstBox ? tmpBox : surrounding_box(_outputBox, tmpBox);
+			firstBox = false;
+		}
+
+		return true;
+	}
+
 private:
 
 };

@@ -26,4 +26,9 @@ namespace Utils {
 		return _min + (_max - _min) * random_double();
 	}
 
+	inline int random_int(int _min, int _max) {
+
+		return static_cast<int>(random_double(_min, _max + 1));
+	}
+
 }

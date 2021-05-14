@@ -9,6 +9,9 @@
 #include "Ray.h"
 #include "Utils.h"
 
+#include "BVH.h"
+#include "aabb.h"
+
 #include "Camera.h"
 #include "model.h"
 #include "Collideable.h"
@@ -209,6 +212,7 @@ Collideable_List random_scene() {
     world_.Add(std::make_shared<Sphere>(Point3f(4, 1, 0), 1, mat3));
 
     return world_;
+    return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
 Collideable_List testModel_scene() {
@@ -299,7 +303,7 @@ int main(int argc, char **argv)
     Camera camera(cam_position, cam_lookAtPosition, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = testModel_scene();
+    Collideable_List world = random_scene();
 
     // -- //
 
@@ -350,8 +354,8 @@ int main(int argc, char **argv)
         }
                
 
-        /*
-        {
+        
+        /*{
             t_start = std::chrono::high_resolution_clock::now();
             ThreadPool pool(std::thread::hardware_concurrency());
 
@@ -359,12 +363,11 @@ int main(int argc, char **argv)
             int step = screenSurface->h / std::thread::hardware_concurrency();
             for (int y = 0; y < screenSurface->h - 1; y++)
             {
-                std::cerr << "\rScanlines Remaining: " << y << std::flush;
                 pool.Enqueue(std::bind(ThreadedRender, screenSurface, world, y, spp, max_depth, &camera));
             }
 
-        }
-        */
+        }*/
+        
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();

@@ -31,7 +31,7 @@ public:
 
 	}
 
-	bool Hit(const Ray& _ray, double _t_min, double _t_max, Hit_Record& _record) const {
+	bool Hit(const Ray& _ray, double _t_min, double _t_max, Hit_Record& _record) const override {
 		Vec3f v0v1 = vertex1 - vertex0;
 		Vec3f v0v2 = vertex2 - vertex0;
 
@@ -64,6 +64,21 @@ public:
 		_record.normal = normals;
 		_record.material_ptr = material;
 
+	}
+
+	inline virtual bool Bounding_Box(AABB& _outputBox) const override {
+		float min[3];
+		float max[3];
+
+		for (int i = 0; i < 3; i++)
+		{
+			min[i] = std::min(vertex0[i], std::min(vertex1[i], vertex2[i]));
+			max[i] = std::max(vertex0[i], std::max(vertex1[i], vertex2[i]));
+		}
+
+		_outputBox = AABB(Vec3f(min[0], min[1], min[2]), Vec3f(max[0], max[1], max[2]));
+
+		return true;
 	}
 
 private:

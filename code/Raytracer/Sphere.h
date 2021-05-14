@@ -55,6 +55,12 @@ public:
 		return true;
 	}
 
+	inline virtual bool Bounding_Box(AABB& _outputBox) const override {
+		_outputBox = AABB(centre - Vec3f(radius), centre + Vec3f(radius));
+
+		return true;
+	}
+
 private:
 
 
