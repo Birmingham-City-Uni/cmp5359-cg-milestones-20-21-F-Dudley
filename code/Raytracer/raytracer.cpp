@@ -160,6 +160,21 @@ void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _
     }
 }
 
+void addModelToScene(Collideable_List& _world, Model* _model, Vec3f _modelTransform, std::shared_ptr<Material> _modelMat) {
+
+    for (uint32_t i = 0; i < _model->nfaces(); ++i)
+    {
+        const Vec3f& vertex0 = _model->vert(_model->face(i)[0]);
+        const Vec3f& vertex1 = _model->vert(_model->face(i)[1]);
+        const Vec3f& vertex2 = _model->vert(_model->face(i)[2]);
+
+        _world.Add(std::make_shared<Triangle>(vertex0 + _modelTransform, vertex1 + _modelTransform, vertex2 + _modelTransform, _modelMat));
+        std::cout << "Added Triangle: " << i << ". to Scene" << std::endl;
+    }
+
+    std::cout << "Loaded Model.\n-----" << std::endl;
+}
+
 Collideable_List random_scene() {
     Collideable_List world_;
 
@@ -269,6 +284,29 @@ Collideable_List testModel_scene() {
     return world_;
 }
 
+Collideable_List materialTest_scene() {
+    Collideable_List world_;
+
+    // Materials
+    auto glassMat = std::make_shared<Dielectric>(2.2);
+    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
+    auto testGreen = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
+    auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.3);
+    auto mirrorMat = std::make_shared<Metal>(Colour(0.1, 0.1, 0.1), 0.275);
+
+    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, 3), 1.0, plasticMat_white));
+    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, 0), 1.0, mirrorMat));
+    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, -3), 1.0, metalMat));
+
+
+    Model* model = new Model("./Assets/Models/testPlane.obj");
+
+    // Test Model Loading
+    addModelToScene(world_, model, Vec3f(0, 0, 0), testGreen);
+
+    return world_;
+}
+
 int main(int argc, char **argv)
 {
     // initialise SDL2
@@ -280,7 +318,7 @@ int main(int argc, char **argv)
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = screenSurface->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int spp = 4;
+    const int spp = 100;
     const int max_depth = 50;
 
     const float scale = 1.f / spp;
@@ -294,7 +332,7 @@ int main(int argc, char **argv)
     auto vertical = Vec3f(0, viewport_height, 0);
     auto lower_left_corner = origin - horizontal / 2 - vertical / 2 - Vec3f(0, 0, focal_length);
 
-    Point3f cam_position(13, 2, 3);
+    Point3f cam_position(10, 1, 0);
     Point3f cam_lookAtPosition(0);
     Vec3f cam_vup(0, 1, 0);
     auto cam_distanceToFocus = 10.0;
@@ -303,7 +341,7 @@ int main(int argc, char **argv)
     Camera camera(cam_position, cam_lookAtPosition, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = random_scene();
+    Collideable_List world = materialTest_scene();
 
     // -- //
 
@@ -316,6 +354,7 @@ int main(int argc, char **argv)
 
     SDL_Event e;
     bool running = true;
+    bool firstRun = true;
     while (running) {
 
         auto t_start = std::chrono::high_resolution_clock::now();
@@ -350,12 +389,13 @@ int main(int argc, char **argv)
                 // Scale Colour Values According to Provided Sample Per Pixel (spp).
                 Uint32 colour = SDL_MapRGB(screenSurface->format, pix_col.x, pix_col.y, pix_col.z);
                 putpixel(screenSurface, x, y, colour);
+
+                // Draw to TGAImage.
             }
         }
-               
-
         
-        /*{
+        /*
+        {
             t_start = std::chrono::high_resolution_clock::now();
             ThreadPool pool(std::thread::hardware_concurrency());
 
@@ -366,12 +406,16 @@ int main(int argc, char **argv)
                 pool.Enqueue(std::bind(ThreadedRender, screenSurface, world, y, spp, max_depth, &camera));
             }
 
-        }*/
-        
+        }
+        */
 
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
         std::cerr << "\nFrame render time:  " << passedTime << " ms" << std::endl;
+
+        if (firstRun) {
+            // Output Drawn TGAImage.
+        }
 
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screenSurface);
         if (texture == NULL) {
