@@ -1,0 +1,21 @@
+# This file uses centimeters as units for non-parametric coordinates.
+
+mtllib bathroom_Counter_Light_Mount.mtl
+g default
+v -7.041082 9.451445 6.863658
+v -6.341929 9.871538 6.863658
+v -7.041082 9.451445 -0.754240
+v -6.341929 9.871538 -0.754240
+vt 0.000000 0.000000
+vt 1.000000 0.000000
+vt 0.000000 1.000000
+vt 1.000000 1.000000
+vn 0.515038 -0.857167 -0.000000
+vn 0.515038 -0.857167 -0.000000
+vn 0.515038 -0.857167 -0.000000
+vn 0.515038 -0.857167 -0.000000
+s 1
+g Counter_Light_Mount
+usemtl initialShadingGroup
+f 2/2/1 3/3/2 4/4/3
+f 2/2/1 1/1/4 3/3/2

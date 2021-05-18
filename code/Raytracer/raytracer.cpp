@@ -307,6 +307,24 @@ Collideable_List materialTest_scene() {
     return world_;
 }
 
+Collideable_List bathroom_scene() {
+    Collideable_List world_;
+
+    // The Model Directory
+    std::string directory = "../Maya Project/Model Exports/";
+
+    // Models
+    Model* counter = new Model("../Models/bathroom_Counter.obj");
+
+    // Materials
+    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
+
+    addModelToScene(world_, counter, Vec3f(0, 0, 0), plasticMat_white);
+
+    return world_;
+    return Collideable_List(std::make_shared<BVH_Node>(world_));
+}
+
 int main(int argc, char **argv)
 {
     // initialise SDL2
@@ -332,7 +350,7 @@ int main(int argc, char **argv)
     auto vertical = Vec3f(0, viewport_height, 0);
     auto lower_left_corner = origin - horizontal / 2 - vertical / 2 - Vec3f(0, 0, focal_length);
 
-    Point3f cam_position(10, 1, 0);
+    Point3f cam_position(4.725, 6.976, 10.187);
     Point3f cam_lookAtPosition(0);
     Vec3f cam_vup(0, 1, 0);
     auto cam_distanceToFocus = 10.0;
@@ -341,7 +359,7 @@ int main(int argc, char **argv)
     Camera camera(cam_position, cam_lookAtPosition, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = materialTest_scene();
+    Collideable_List world = bathroom_scene();
 
     // -- //
 
