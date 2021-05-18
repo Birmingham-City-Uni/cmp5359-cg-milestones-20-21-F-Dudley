@@ -106,15 +106,17 @@ double hit_sphere(const Point3f& _centre, double _radius, const Ray& _ray) {
     }
 }
 
-Colour ray_colour(const Ray& _ray, const Collideable& _world, int _depth) {
+Colour ray_colour(const Ray& _ray, const Colour& _background, const Collideable& _world, int _depth) {
     Hit_Record record;
 
     if (_depth <= 0) return Colour(0, 0, 0);
+
+    /*
     if (_world.Hit(_ray, 0.001, Utils::infinity, record)) {
         Ray scattered;
         Colour attenuation;
         if (record.material_ptr->Scatter(_ray, record, attenuation, scattered)) {
-            return attenuation * ray_colour(scattered, _world, _depth - 1);
+            return attenuation * ray_colour(scattered, _background, _world, _depth - 1);
         }
 
         return Colour(0, 0, 0);
@@ -124,6 +126,18 @@ Colour ray_colour(const Ray& _ray, const Collideable& _world, int _depth) {
     auto t = 0.5 * (unit_direction.y + 1.0);
 
     return (1.0 - t) * Colour(1.0, 1.0, 1.0) + t * Colour(0.5, 0.7, 1.0) * 255;
+    */
+
+    if (!_world.Hit(_ray, 0.001, Utils::infinity, record)) return _background;
+
+    Ray scattered;
+    Colour attenuation;
+    Colour emitted = record.material_ptr->emitted();
+
+    if (!record.material_ptr->Scatter(_ray, record, attenuation, scattered)) return emitted;
+
+
+    return emitted + attenuation * ray_colour(scattered, _background, _world, _depth - 1);
 }
 
 void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _spp, int _maxDepth, Camera* _camera) {
@@ -133,6 +147,7 @@ void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _
     
     const Colour black(0);
     Colour pix_col(black);
+    Colour background(0);
 
     for (int x = 0; x < _screen->w; ++x) {
         pix_col = black;
@@ -142,9 +157,13 @@ void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _
             auto v = double(_y + Utils::random_double()) / (imageHeight - 1);
 
             Ray ray = _camera->Get_Ray(u, v);
+            Vec3f unit_direction = ray.GetDirection().normalize();
+
+            auto t = 0.5 * (unit_direction.y + 1.0);
+            background = (1.0 - t) * Colour(1) + t * Colour(0.5, 0.7, 1.0) * 255;
 
             // Accumulate Colours over Samples.
-            pix_col = pix_col + ray_colour(ray, _world, _maxDepth);
+            pix_col = pix_col + ray_colour(ray, background, _world, _maxDepth);
         }
 
         pix_col /= 255.f * _spp;
@@ -172,7 +191,7 @@ void addModelToScene(Collideable_List& _world, Model* _model, Vec3f _modelTransf
         std::cout << "Added Triangle: " << i << ". to Scene" << std::endl;
     }
 
-    std::cout << "Loaded Model.\n-----" << std::endl;
+    std::cout << "-----" << std::endl;
 }
 
 Collideable_List random_scene() {
@@ -206,7 +225,7 @@ Collideable_List random_scene() {
                 }
                 else  // Glass Material
                 {
-                    sphere_material = std::make_shared<Dielectric>(1.5);
+                    sphere_material = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
                 }
 
                 world_.Add(std::make_shared<Sphere>(centre, 0.2, sphere_material));
@@ -230,98 +249,87 @@ Collideable_List random_scene() {
     return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
-Collideable_List testModel_scene() {
-    Collideable_List world_;
-
-    Model* model = new Model("./Assets/Models/cc.obj");
-
-    auto mat1 = std::make_shared<Dielectric>(1.5);
-    auto mat2 = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
-    auto mat3 = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
-
-    Vec3f transform(0, 0.8, 0);
-    auto glass = std::make_shared<Dielectric>(1.5);
-    for (uint32_t i = 0; i < model->nfaces(); ++i)
-    {
-        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
-        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
-        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
-
-        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat1));
-        std::cout << "Added Model 1 Triangle: " << i << ". to Scene" << std::endl;
-    }
-
-    /*
-    transform = Vec3f(1.2, 0.8, 0);
-    auto diffuse = std::make_shared<Lambertian>(Colour(0.4, 0.2, 0.1));
-    for (uint32_t i = 0; i < model->nfaces(); ++i)
-    {
-        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
-        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
-        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
-
-        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat2));
-        std::cout << "Added Model 2 to Scene" << std::endl;
-    }
-
-    transform = Vec3f(-1.2, 0.8, 0);
-    auto metal = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
-    for (uint32_t i = 0; i < model->nfaces(); ++i)
-    {
-        const Vec3f& vertex0 = model->vert(model->face(i)[0]);
-        const Vec3f& vertex1 = model->vert(model->face(i)[1]);
-        const Vec3f& vertex2 = model->vert(model->face(i)[2]);
-
-        world_.Add(std::make_shared<Triangle>(vertex0 + transform, vertex1 + transform, vertex2 + transform, mat3));
-        std::cout << "Added Model 3 to Scene" << std::endl;
-    }
-    */
-
-    auto groundMat = std::make_shared<Lambertian>(Colour(0.5));
-    world_.Add(std::make_shared<Sphere>(Point3f(0, -1000, 0), 1000, groundMat));
-
-
-    return world_;
-}
-
-Collideable_List materialTest_scene() {
-    Collideable_List world_;
-
-    // Materials
-    auto glassMat = std::make_shared<Dielectric>(2.2);
-    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
-    auto testGreen = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
-    auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.3);
-    auto mirrorMat = std::make_shared<Metal>(Colour(0.1, 0.1, 0.1), 0.275);
-
-    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, 3), 1.0, plasticMat_white));
-    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, 0), 1.0, mirrorMat));
-    world_.Add(std::make_shared<Sphere>(Point3f(0, 1, -3), 1.0, metalMat));
-
-
-    Model* model = new Model("./Assets/Models/testPlane.obj");
-
-    // Test Model Loading
-    addModelToScene(world_, model, Vec3f(0, 0, 0), testGreen);
-
-    return world_;
-}
-
 Collideable_List bathroom_scene() {
     Collideable_List world_;
+    int modelNum = 0;
 
     // The Model Directory
     std::string directory = "../Maya Project/Model Exports/";
 
-    // Models
-    Model* counter = new Model("../Models/bathroom_Counter.obj");
-
     // Materials
+    auto glassMat = std::make_shared<Dielectric>(2.2);
     auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
+    auto carpetMat = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
+    auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.2);
+    auto mirrorMat = std::make_shared<Metal>(Colour(0.1, 0.1, 0.1), 0.1);
+    auto lightMat = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
 
-    addModelToScene(world_, counter, Vec3f(0, 0, 0), plasticMat_white);
+    // Models and Vectors (if Parent Object)
+    Vec3f baseModelPos = Vec3f(0);
 
-    return world_;
+    
+    // Counter Area
+    Model* counter = new Model("../Models/bathroom_Counter.obj");
+    addModelToScene(world_, counter, baseModelPos, carpetMat); modelNum++;
+        
+        /*
+        Model* counter_light = new Model("../Models/bathroom_Counter_Light.obj");
+        addModelToScene(world_, counter_light, baseModelPos, metalMat); modelNum++;
+
+       
+        //Model* counter_lightMount = new Model("../Models/bathroom_Counter_Light_Mount.obj");
+        //addModelToScene(world_, counter_lightMount, baseModelPos, plasticMat_white); modelNum++;
+
+        
+        Model* counter_mirrorCover = new Model("../Models/bathroom_Counter_Mirror_Cover.obj");
+        addModelToScene(world_, counter_mirrorCover, baseModelPos, plasticMat_white); modelNum++;
+
+        Model* counter_mirrorSurface = new Model("../Models/bathroom_Counter_Mirror_Surface.obj");
+        addModelToScene(world_, counter_mirrorSurface, baseModelPos, mirrorMat); modelNum++;
+
+        //Model* counter_panel = new Model("../Models/bathroom_Counter_Panel.obj");
+        //addModelToScene(world_, counter_panel, baseModelPos, testGreen); modelNum++;
+
+        Model* counter_sink = new Model("../Models/bathroom_Counter_Sink.obj");
+        addModelToScene(world_, counter_sink, baseModelPos, metalMat); modelNum++;
+
+        Model* counter_tap = new Model("../Models/bathroom_Counter_Tap.obj");
+        addModelToScene(world_, counter_tap, baseModelPos, metalMat); modelNum++;
+
+        Model* counter_shelve = new Model("../Models/bathroom_Counter_Shelve.obj");
+        addModelToScene(world_, counter_shelve, baseModelPos, testGreen);
+        */
+
+    Model* counterPole_right_outter = new Model("../Models/bathroom_Counter_Pole_Outer.obj");
+    Model* counterPole_right_inner = new Model("../Models/bathroom_Counter_Pole_Inner.obj");
+    addModelToScene(world_, counterPole_right_outter, baseModelPos, plasticMat_white); modelNum++;
+    addModelToScene(world_, counterPole_right_inner, baseModelPos, metalMat); modelNum++;
+
+    // ----- //
+
+    // Shower Area
+
+    Model* showerScreen = new Model("../Models/bathroom_ShowerScreen.obj");
+    addModelToScene(world_, showerScreen, baseModelPos, plasticMat_white); modelNum++;
+
+    //Model* shower = new Model("../Models/bathroom_Shower.obj");
+    //addModelToScene(world_, shower, baseModelPos, metalMat); modelNum++;
+
+    // ------ //
+    
+    Model* carpet = new Model("../Models/bathroom_Carpet.obj");
+    addModelToScene(world_, carpet, baseModelPos, carpetMat); modelNum++;
+    
+
+
+    //Model* walls = new Model("../Models/bathroom_Walls.obj");
+    //addModelToScene(world_, walls, baseModelPos, plasticMat_white); modelNum++;
+
+    std::cout << "Models All Loaded.\nTOTAL MODELS: " << modelNum << std::endl;
+
+    world_.Add(std::make_shared<Sphere>(Vec3f(0, 1, 0), 0.5, lightMat));
+
+    //return world_;
     return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
@@ -336,27 +344,23 @@ int main(int argc, char **argv)
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = screenSurface->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int spp = 100;
+    const int spp = 10;
     const int max_depth = 50;
 
     const float scale = 1.f / spp;
 
     // Camera Variables
-    auto viewport_height = 2.0;
-    auto viewport_width = aspect_ratio * viewport_height;
-    auto focal_length = 1.0;
-    auto origin = Point3f(0, 0, 0);
-    auto horizontal = Vec3f(viewport_width, 0, 0);
-    auto vertical = Vec3f(0, viewport_height, 0);
-    auto lower_left_corner = origin - horizontal / 2 - vertical / 2 - Vec3f(0, 0, focal_length);
-
     Point3f cam_position(4.725, 6.976, 10.187);
-    Point3f cam_lookAtPosition(0);
+    Point3f cam_aimPosition(1.703, 6.154, 4.154);
     Vec3f cam_vup(0, 1, 0);
-    auto cam_distanceToFocus = 10.0;
-    auto aperture = 0.15;
+    double cam_distanceToFocus = 10.0;
+    double aperture = 0.1;
+    double cam_fov = 80;
 
-    Camera camera(cam_position, cam_lookAtPosition, cam_vup, 20, aspect_ratio, aperture, cam_distanceToFocus);
+    Point3f tmpCamPos(-5, 2, 0);
+    Point3f tmpCamAim(0);
+
+    Camera camera(cam_position, cam_aimPosition, cam_vup, cam_fov, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
     Collideable_List world = bathroom_scene();
@@ -384,18 +388,24 @@ int main(int argc, char **argv)
         
         for (int y = screenSurface->h-1; y >= 0; --y) {
             std::cerr << "\rScanlines Remaining: " << y << std::flush;
-            
+            Colour background(0);
+
             for (int x = 0; x < screenSurface->w; ++x) {
                 pix_col = black;
+
 
                 for (int s = 0; s < spp; s++) {
                     auto u = double(x + Utils::random_double()) / (image_width - 1);
                     auto v = double(y + Utils::random_double()) / (image_height - 1);
 
                     Ray ray = camera.Get_Ray(u, v);
+                    Vec3f unit_direction = ray.GetDirection().normalize();
+
+                    auto t = 0.5 * (unit_direction.y + 1.0);
+                    background = (1.0 - t) * Colour(1) + t * Colour(0.5, 0.7, 1.0) * 255;
 
                     // Accumulate Colours over Samples.
-                    pix_col = pix_col + ray_colour(ray, world, max_depth);
+                    pix_col = pix_col + ray_colour(ray, background, world, max_depth);
                 }
 
                 pix_col /= 255.f * spp;
@@ -412,10 +422,15 @@ int main(int argc, char **argv)
             }
         }
         
+        
         /*
         {
             t_start = std::chrono::high_resolution_clock::now();
-            ThreadPool pool(std::thread::hardware_concurrency());
+
+            unsigned int threadNum = std::thread::hardware_concurrency();
+            std::cout << "Number of Supported Threads: " << threadNum << std::endl;
+
+            ThreadPool pool(1000);
 
             int start = screenSurface->h - 1;
             int step = screenSurface->h / std::thread::hardware_concurrency();

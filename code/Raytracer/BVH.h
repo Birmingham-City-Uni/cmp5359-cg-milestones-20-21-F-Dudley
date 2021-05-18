@@ -44,19 +44,19 @@ public:
 
 	}
 
-	BVH_Node(const Collideable_List& _world)
-		: BVH_Node(_world.objects, 0, _world.objects.size()) {
+	BVH_Node(const Collideable_List& _list) 
+	: BVH_Node(_list.objects, 0, _list.objects.size()) {
 
 	}
 
-	BVH_Node(const std::vector<std::shared_ptr<Collideable>>& _objectsSrc, size_t _start, size_t _end) {
-		auto objects = _objectsSrc;
+	BVH_Node(const std::vector<std::shared_ptr<Collideable>>& _srcObjects, size_t _start, size_t _end) {
+		auto objects = _srcObjects;
 
 		int axis = Utils::random_int(0, 2);
 
 		auto comparator = (axis == 0) ? Box_Compare_X
-			: (axis == 1) ? Box_Compare_Y
-			: Box_Compare_Z;
+						: (axis == 1) ? Box_Compare_Y
+						: Box_Compare_Z;
 
 		size_t objectSpan = _end - _start;
 
@@ -79,6 +79,7 @@ public:
 			std::sort(objects.begin() + _start, objects.begin() + _end, comparator);
 
 			auto mid = _start + objectSpan / 2;
+
 			left = std::make_shared<BVH_Node>(objects, _start, mid);
 			right = std::make_shared<BVH_Node>(objects, mid, _end);
 		}
@@ -89,20 +90,19 @@ public:
 			std::cerr << "No Bounding Box in BVH_Node Constructor." << std::endl;
 		}
 
-		box = surrounding_box(boxLeft, boxRight);
+		box = Surrounding_Box(boxLeft, boxRight);
 	}
 
 	virtual bool Hit(const Ray& _ray, double _t_min, double _t_max, Hit_Record& _record) const override {
+		if (box.Hit(_ray, _t_min, _t_max)) return false;
 
-		if (!box.Hit(_ray, _t_min, _t_max)) return false;
-		
-		bool hit_left = left->Hit(_ray, _t_min, _t_max, _record);
-		bool hit_right = right->Hit(_ray, _t_min, hit_left ? _record.t : _t_max, _record);
+		bool hitLeft = left->Hit(_ray, _t_min, _t_max, _record);
+		bool hitRight = right->Hit(_ray, _t_min, hitLeft ? _record.t : _t_max, _record);
 
-		return hit_left || hit_right;
+		return hitLeft || hitRight;
 	}
 
-	virtual bool Bounding_Box(AABB& _outputBox) const override {
+	virtual bool  Bounding_Box(AABB& _outputBox) const override {
 		_outputBox = box;
 
 		return true;

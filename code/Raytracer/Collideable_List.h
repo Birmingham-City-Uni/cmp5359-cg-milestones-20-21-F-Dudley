@@ -54,7 +54,7 @@ public:
 
 			if (!object->Bounding_Box(tmpBox)) return false;
 
-			_outputBox = firstBox ? tmpBox : surrounding_box(_outputBox, tmpBox);
+			_outputBox = firstBox ? tmpBox : Surrounding_Box(_outputBox, tmpBox);
 			firstBox = false;
 		}
 

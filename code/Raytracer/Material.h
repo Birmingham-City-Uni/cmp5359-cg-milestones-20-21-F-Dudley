@@ -32,6 +32,10 @@ public:
 		return _v - 2 * _v.dotProduct(_n) * _n;
 	}
 
+	virtual Colour emitted() const {
+		return Colour(0);
+	}
+
 protected:
 
 };
@@ -131,5 +135,35 @@ private:
 
 		return r + (1 - r) * pow((1 - _cosine), 5);
 	}
+
+};
+
+class Diffuse_Light : public Material {
+public:
+	std::shared_ptr<Colour> emit;
+
+private:
+
+
+public:
+	Diffuse_Light() {
+
+	}
+
+	Diffuse_Light(Colour _colour) 
+	: emit(std::make_shared<Colour>(_colour)) {
+
+	}
+
+	virtual bool Scatter(const Ray& _ray_in, const Hit_Record& _record, Colour& _attenuation, Ray& _scattered) const override {
+		return false;
+	}
+
+	virtual Colour emitted() const override {
+		return *emit;
+	}
+
+private:
+
 
 };
