@@ -19,18 +19,28 @@ Model::Model(const char *filename) : verts_(), faces_() {
             Vec3f v;
             for (int i=0;i<3;i++) iss >> v[i];
             verts_.push_back(v);
-        } else if (!line.compare(0, 2, "f ")) {
+        }
+        else if (!line.compare(0, 2, "f ")) { // f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3 
             std::vector<int> f;
-            int itrash, idx;
+            std::vector<int> vns;
+            std::vector<int> uvs;
+
+            int itrash, v_idx, vt_idx, vn_idx;
             iss >> trash;
-            while (iss >> idx >> trash >> itrash >> trash >> itrash) {
-                idx--; // in wavefront obj all indices start at 1, not zero
-                f.push_back(idx);
+
+            while (iss >> v_idx >> trash >> vt_idx >> trash >> vn_idx) {
+                v_idx--, vt_idx--, vn_idx--; // in wavefront obj all indices start at 1, not zero
+                f.push_back(v_idx);
+                vns.push_back(vn_idx);
+                uvs.push_back(vt_idx);
             }
+
             faces_.push_back(f);
+            vnorms_.push_back(vns);
+            uvs_.push_back(uvs);
         }
     }
-    std::cerr << "# v# " << verts_.size() << " f# "  << faces_.size() << std::endl;
+    std::cerr << "# vertex# " << verts_.size() << " face# "  << faces_.size() << std::endl;
 }
 
 Model::~Model() {
@@ -44,8 +54,16 @@ int Model::nfaces() {
     return (int)faces_.size();
 }
 
+int Model::nnorms() {
+    return (int)vnorms_.size();
+}
+
 std::vector<int> Model::face(int idx) {
     return faces_[idx];
+}
+
+std::vector<int> Model::vnorms(int idx) {
+    return vnorms_[idx];
 }
 
 Vec3f Model::vert(int i) {

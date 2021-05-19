@@ -5,7 +5,9 @@
 
 class Triangle : public Collideable {
 public:
-	Point3f vertex0, vertex1, vertex2;
+	Point3f vertex0,  vertex1,  vertex2;
+	Point3f vertex0n, vertex1n, vertex2n;
+
 	Vec3f normals;
 	std::shared_ptr<Material> material;
 
@@ -17,13 +19,23 @@ public:
 
 	}
 
-	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, std::shared_ptr<Material> _material) 
+	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, 
+			 std::shared_ptr<Material> _material) 
 	: vertex0(_vertex0), vertex1(_vertex1), vertex2(_vertex2), material(_material) {
 
 	}
 
-	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, Vec3f _normals, std::shared_ptr<Material> _material)
+	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, Vec3f _normals, std::shared_ptr<Material> _material) 
 	: vertex0(_vertex0), vertex1(_vertex1), vertex2(_vertex2), normals(_normals), material(_material) {
+
+	}
+
+	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, 
+			 Point3f _vertex0n, Point3f _vertex1n, Point3f _vertex2n, 
+			 std::shared_ptr<Material> _material)
+	: vertex0(_vertex0), vertex1(_vertex1), vertex2(_vertex2), 
+		vertex0n(_vertex0n), vertex1n(_vertex1n), vertex2n(_vertex2n), 
+		material(_material) {
 
 	}
 

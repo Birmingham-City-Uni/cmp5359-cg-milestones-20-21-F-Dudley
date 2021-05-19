@@ -187,11 +187,15 @@ void addModelToScene(Collideable_List& _world, Model* _model, Vec3f _modelTransf
         const Vec3f& vertex1 = _model->vert(_model->face(i)[1]);
         const Vec3f& vertex2 = _model->vert(_model->face(i)[2]);
 
-        _world.Add(std::make_shared<Triangle>(vertex0 + _modelTransform, vertex1 + _modelTransform, vertex2 + _modelTransform, _modelMat));
+        const Vec3f& normals = Vec3f(_model->vnorms(i)[0], _model->vnorms(i)[1], _model->vnorms(i)[2]);
+
+        _world.Add(std::make_shared<Triangle>(vertex0 + _modelTransform, vertex1 + _modelTransform, vertex2 + _modelTransform, normals, _modelMat));
         std::cout << "Added Triangle: " << i << ". to Scene" << std::endl;
     }
 
-    std::cout << "-----" << std::endl;
+    size_t test = _model->vnorms(1).size();
+
+    std::cout << _model->nfaces() << " ----- " << _model->nnorms() << std::endl;
 }
 
 Collideable_List random_scene() {
@@ -245,7 +249,10 @@ Collideable_List random_scene() {
     auto mat3 = std::make_shared<Metal>(Colour(0.7, 0.6, 0.5), 0.0);
     world_.Add(std::make_shared<Sphere>(Point3f(4, 1, 0), 1, mat3));
 
-    return world_;
+    Model* testModel = new Model("../Models/bathroom_ShowerScreen.obj");
+    addModelToScene(world_, testModel, Vec3f(0), mat3);
+
+    //return world_;
     return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
@@ -272,9 +279,9 @@ Collideable_List bathroom_scene() {
     Model* counter = new Model("../Models/bathroom_Counter.obj");
     addModelToScene(world_, counter, baseModelPos, carpetMat); modelNum++;
         
-        /*
+        
         Model* counter_light = new Model("../Models/bathroom_Counter_Light.obj");
-        addModelToScene(world_, counter_light, baseModelPos, metalMat); modelNum++;
+        addModelToScene(world_, counter_light, baseModelPos, lightMat); modelNum++;
 
        
         //Model* counter_lightMount = new Model("../Models/bathroom_Counter_Light_Mount.obj");
@@ -297,8 +304,8 @@ Collideable_List bathroom_scene() {
         addModelToScene(world_, counter_tap, baseModelPos, metalMat); modelNum++;
 
         Model* counter_shelve = new Model("../Models/bathroom_Counter_Shelve.obj");
-        addModelToScene(world_, counter_shelve, baseModelPos, testGreen);
-        */
+        addModelToScene(world_, counter_shelve, baseModelPos, carpetMat);
+        
 
     Model* counterPole_right_outter = new Model("../Models/bathroom_Counter_Pole_Outer.obj");
     Model* counterPole_right_inner = new Model("../Models/bathroom_Counter_Pole_Inner.obj");
@@ -310,18 +317,16 @@ Collideable_List bathroom_scene() {
     // Shower Area
 
     Model* showerScreen = new Model("../Models/bathroom_ShowerScreen.obj");
-    addModelToScene(world_, showerScreen, baseModelPos, plasticMat_white); modelNum++;
+    addModelToScene(world_, showerScreen, baseModelPos, mirrorMat); modelNum++;
 
-    //Model* shower = new Model("../Models/bathroom_Shower.obj");
-    //addModelToScene(world_, shower, baseModelPos, metalMat); modelNum++;
+    Model* shower = new Model("../Models/bathroom_Shower.obj");
+    addModelToScene(world_, shower, baseModelPos, metalMat); modelNum++;
 
     // ------ //
     
     Model* carpet = new Model("../Models/bathroom_Carpet.obj");
     addModelToScene(world_, carpet, baseModelPos, carpetMat); modelNum++;
     
-
-
     //Model* walls = new Model("../Models/bathroom_Walls.obj");
     //addModelToScene(world_, walls, baseModelPos, plasticMat_white); modelNum++;
 
@@ -329,7 +334,7 @@ Collideable_List bathroom_scene() {
 
     world_.Add(std::make_shared<Sphere>(Vec3f(0, 1, 0), 0.5, lightMat));
 
-    //return world_;
+    return world_;
     return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
