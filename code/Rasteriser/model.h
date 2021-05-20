@@ -6,6 +6,9 @@
 class Model {
 private:
 	std::vector<Vec3f> verts_;              // Stores Vec3f for every model vertex world position
+	std::vector<std::vector<int>> vnorms_;
+	std::vector<std::vector<int>> uvs_;
+
 	std::vector<std::vector<int> > faces_;  // Stores a vector of vector<int> that represent indices in verts_ for vertices comprising a face
 	std::vector<Vec2f> vts_;				// Stores Vec3f for every model vertex texture coordinate
 public:
@@ -15,6 +18,9 @@ public:
 	int nfaces();
 	Vec3f vert(int i);
 	Vec2f vt(int i);
+
 	std::vector<int> face(int idx);
+	std::vector<int> vertex_normal(int idx);
+	std::vector<int> uv_coord(int idx);
 };
 

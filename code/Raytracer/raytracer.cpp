@@ -7,6 +7,7 @@
 #include "ThreadPool.h"
 #include "geometry.h"
 #include "Ray.h"
+#include "tgaimage.h"
 #include "Utils.h"
 
 #include "BVH.h"
@@ -334,8 +335,26 @@ Collideable_List bathroom_scene() {
 
     world_.Add(std::make_shared<Sphere>(Vec3f(0, 1, 0), 0.5, lightMat));
 
-    return world_;
+    //return world_;
     return Collideable_List(std::make_shared<BVH_Node>(world_));
+}
+
+Collideable_List carloTest_scene() {
+    Collideable_List world_;
+
+    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
+    auto carpetMat = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
+    auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.2);
+
+    Vec3f baseModelPos = Vec3f(0);
+
+    Model* showerScreen = new Model("../Models/bathroom_ShowerScreen.obj");
+    addModelToScene(world_, showerScreen, baseModelPos, carpetMat);
+
+    Model* shower = new Model("../Models/bathroom_Shower.obj");
+    addModelToScene(world_, shower, baseModelPos, metalMat);
+
+    return world_;
 }
 
 int main(int argc, char **argv)
@@ -368,7 +387,7 @@ int main(int argc, char **argv)
     Camera camera(cam_position, cam_aimPosition, cam_vup, cam_fov, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = bathroom_scene();
+    Collideable_List world = carloTest_scene();
 
     // -- //
 
@@ -385,6 +404,8 @@ int main(int argc, char **argv)
     while (running) {
 
         auto t_start = std::chrono::high_resolution_clock::now();
+
+        TGAImage image(screenSurface->w, screenSurface->h, TGAImage::RGB);
 
         // clear back buffer, pixel data on surface and depth buffer (as movement)
         SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 0, 0, 0));
@@ -419,11 +440,12 @@ int main(int argc, char **argv)
                 pix_col.z = sqrt(pix_col.z);
                 pix_col *= 255;
 
+                // Drawing to TGA Image.
+                image.set(x, y, TGAColor((unsigned char) pix_col.x, (unsigned char) pix_col.y, (unsigned char) pix_col.z, 255));
+
                 // Scale Colour Values According to Provided Sample Per Pixel (spp).
                 Uint32 colour = SDL_MapRGB(screenSurface->format, pix_col.x, pix_col.y, pix_col.z);
                 putpixel(screenSurface, x, y, colour);
-
-                // Draw to TGAImage.
             }
         }
         
@@ -453,6 +475,8 @@ int main(int argc, char **argv)
 
         if (firstRun) {
             // Output Drawn TGAImage.
+            image.flip_horizontally();
+            image.write_tga_file("raytracerOutput.tga");
         }
 
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screenSurface);

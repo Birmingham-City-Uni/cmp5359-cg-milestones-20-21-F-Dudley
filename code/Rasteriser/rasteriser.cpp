@@ -86,41 +86,24 @@ void convertToRaster(
 )
 {
     // TASK 1
-    // convert to camera space - your implementation here
-    // define a new Vec3f to store the camera space position of the vertex (vertexCamera)
-    // multiple the worldToCamera matrix with the vertexWorld position
-    // store the value in vertexCamera
-    Vec3f vertexCamera;
-    worldToCamera.multVecMatrix(vertexWorld, vertexCamera);
+    Vec3f vertCam;
+    worldToCamera.multVecMatrix(vertexWorld, vertCam);
 
     // TASK 2
-    // convert to screen space - your implementation here
-    // define a Vec2f to store the vertex screen space position (vertexScreen)
-    // calculate x and y components for this position from the vertexCamera variable
-    Vec2f vertexScreen;
-    vertexScreen.x = near * vertexCamera.x / -vertexCamera.z;
-    vertexScreen.y = near * vertexCamera.y / -vertexCamera.z;
+    Vec2f vertS;
+    vertS.x = near * vertCam.x / -vertCam.z;
+    vertS.y = near * vertCam.y / -vertCam.z;
+
 
     // TASK 3
-    // now convert point from screen space to NDC space (in range [-1,1])
-    // - your implementation here
-    // define a new Vec2f to support the NDC position (vertexNDC)
-    // calculate this position and store in vertexNDC
-    Vec2f vertexNDC;
-    vertexNDC.x = 2 * vertexScreen.x / (r - l) - (r + l) / (r - l);
-    vertexNDC.y = 2 * vertexScreen.y / (t - b) - (t + b) / (t - b);
+    Vec2f vertNDC;
+    vertNDC.x = 2 * vertS.x / (r - l) - (r + l) / (r - l);
+    vertNDC.y = 2 * vertS.y / (t - b) - (t + b) / (t - b);
 
     // TASK 4
-    // convert to raster space  - your implementation here
-    // vertexRaster is passed as reference and is where you store the output of this calculation
-    // convert from NDCs to raster position based upon image width and height
-    // store the z component in vertexRaster as the -ve depth from vertexCamera - used later in depth testing
-    // -ve depth actually makes this a positive depth value (as camera looks down -ve z)
-    // in raster space y is down so invert direction
-    vertexRaster.x = (vertexNDC.x + 1) / 2 * imageWidth;
-    vertexRaster.y = (1 - vertexNDC.y) / 2 * imageHeight;
-    vertexRaster.z = -vertexCamera.z;
-
+    vertexRaster.x = (vertNDC.x + 1) / 2 * imageWidth;
+    vertexRaster.y = (1 - vertNDC.y) / 2 * imageHeight;
+    vertexRaster.z = -vertCam.z;
 }
 
 float min3(const float &a, const float &b, const float &c)
@@ -202,8 +185,7 @@ Matrix44f lookAt(const Vec3f from, const Vec3f to, const Vec3f _tmp = Vec3f(0, 1
 {
     // TASK 5
     // Calculate forward, right and up vectors
-    Vec3f forward = from - to;
-    forward.normalize();
+    Vec3f forward = (from - to).normalize();
 
     Vec3f right = _tmp;
     right.normalize();
@@ -239,12 +221,23 @@ Model* model = nullptr;
 
 int main(int argc, char **argv)
 {
-    // Model Loading
+    // Camera Variables
+    //const Vec3f cameraPosition(4.725f, 6.976f, 10.187f);
+    //const Vec3f targetPosition(1.703f, 6.154f, 4.154f);
+    const Vec3f up(0.f, 1.f, 0.f);
+
+    const Vec3f cameraRotation(0);
+
+    // Test Cam
+    const Vec3f cameraPosition(1.f, 10, 30.f);
+    const Vec3f targetPosition(0, 6, 4);
+
     if (2 == argc) {
         model = new Model(argv[1]);
     }
     else {
-        model = new Model("cc_t.obj");
+        //model = new Model("../Models/testScene.obj");
+        model = new Model("../Models/bathroom_WholeScene.obj");
     }
 
     // initialise SDL2
@@ -279,11 +272,8 @@ int main(int argc, char **argv)
         // Only required if animating the camera as the depth buffer will need to be recomputed
         for (uint32_t i = 0; i < imageWidth * imageHeight; ++i) depthBuffer[i] = farClippingPlane;
 
-        // Hard coded worldToCamera matrix
-        worldToCamera = { 1,0,0,0,
-                          0,1,0.3,0,
-                          0,-0.3,0.9,0,
-                          0,0,-3,1 };
+
+        worldToCamera = lookAt(cameraPosition, targetPosition, up).inverse();
 
         // Outer loop - For every face in the model (would eventually need to be amended to be for every face in every model)
         for (uint32_t i = 0; i < model->nfaces(); ++i) {
@@ -309,6 +299,7 @@ int main(int argc, char **argv)
             Vec2f st0 = model->vt(model->face(i)[0]);
             Vec2f st1 = model->vt(model->face(i)[1]);
             Vec2f st2 = model->vt(model->face(i)[2]);
+
             st0 *= v0Raster.z, st1 *= v1Raster.z, st2 *= v2Raster.z;
 
             // Calculate the bounding box of the triangle defined by the vertices
@@ -345,7 +336,7 @@ int main(int argc, char **argv)
                         float oneOverZ = v0Raster.z * w0 + v1Raster.z * w1 + v2Raster.z * w2; // reciprocal for depth testing
                         float z = 1 / oneOverZ;
                         // Depth-buffer test
-                        if (z < depthBuffer[y * imageWidth + x]) { // is this triangle closer than others previously?
+                        if (z < depthBuffer[y * imageWidth + x] && z > 0) { // is this triangle closer than others previously?
                             depthBuffer[y * imageWidth + x] = z;
 
                             // Calculate the texture coordinate based on barycentric position of the pixel
@@ -400,6 +391,7 @@ int main(int argc, char **argv)
             }
         }
 
+        
         // Calculate frame interval timing
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
