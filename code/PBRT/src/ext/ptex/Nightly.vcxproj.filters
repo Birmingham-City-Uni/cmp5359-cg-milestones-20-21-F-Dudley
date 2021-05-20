@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Software\PBRT\PBRT Build\CMakeFiles\1c15933905bc917215448aad32f7b8ad\Nightly.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Software\PBRT\pbrt-v3\src\ext\ptex\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\CMakeFiles\Nightly" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{28C64792-FF90-3732-97B6-568CED9AB33C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

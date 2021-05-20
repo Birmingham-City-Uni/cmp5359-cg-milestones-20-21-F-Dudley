@@ -1,0 +1,436 @@
+# Exported for PBRT Version : v3 Master Branch
+
+Film "image"
+	"integer yresolution" [1080]
+	"float scale" [1.0]
+	"float diagonal" [35.9210244843]
+	"integer xresolution" [1920]
+
+Sampler "halton"
+	"integer pixelsamples" [250]
+
+PixelFilter "gaussian"
+	"float ywidth" [2.0]
+	"float xwidth" [2.0]
+	"float alpha" [2.0]
+
+Integrator "path"
+	"string lightsamplestrategy" ["spatial"]
+	"integer maxdepth" [50]
+	"float rrthreshold" [1.0]
+
+Accelerator "bvh"
+	"string splitmethod" ["sah"]
+	"integer maxnodeprims" [4]
+
+# Camera begin
+Scale -1 1 1
+LookAt 4.724525 6.975534 10.187034 1.703216 6.154441 4.153619 -0.054087 0.992677 -0.108010
+Camera "perspective"
+	"float fov" [103.566209105]
+	"float screenwindow" [-1.0 1.0 -0.5625 0.5625]
+# Camera end
+
+WorldBegin
+	AttributeBegin
+		# Maya Point Light : |pointLight_Mirror_L|pointLight_Mirror_L_Mirror_L
+		Translate -6.37881333798 9.19848005081 5.44303253933
+		LightSource "point"
+			"rgb I" [1.0 1.0 1.0]
+			"rgb scale" [10.0 10.0 10.0]
+	AttributeEnd
+
+	AttributeBegin
+		# Maya Point Light : |pointLight_Mirror_R|pointLight_Mirror_R_Mirror_R
+		Translate -6.5565699329 9.34694311929 0.544883581688
+		LightSource "point"
+			"rgb I" [1.0 1.0 1.0]
+			"rgb scale" [10.0 10.0 10.0]
+	AttributeEnd
+
+	AttributeBegin
+		# Maya Point Light : |pointLight_Shower_L|pointLight_Shower_L_Back_L
+		Translate -3.77208565272 9.57333147037 -4.62104476684
+		LightSource "point"
+			"rgb I" [1.0 1.0 1.0]
+			"rgb scale" [10.0 10.0 10.0]
+	AttributeEnd
+
+	AttributeBegin
+		# Maya Point Light : |pointLight_Shower_R|pointLight_Shower_R
+		Translate 2.99015482651 9.45154705088 -4.61391162748
+		LightSource "point"
+			"rgb I" [1.0 1.0 1.0]
+			"rgb scale" [10.0 10.0 10.0]
+	AttributeEnd
+
+	MakeNamedMaterial "PBRTPlastic"
+		"rgb Ks" [0.386999994516 0.129254579544 0.0692730098963]
+		"bool remaproughness" ["true"]
+		"float roughness" [0.20000000298]
+		"string type" ["plastic"]
+		"rgb Kd" [0.300999999046 0.213681131601 0.158325999975]
+
+	MakeNamedMaterial "PBRTMetal"
+		"bool remaproughness" ["true"]
+		"rgb k" [0.5 0.5 0.5]
+		"rgb eta" [0.5 0.5 0.5]
+		"string type" ["metal"]
+		"float roughness" [0.019999999553]
+
+	MakeNamedMaterial "PBRTGlassMaterial1"
+		"bool remaproughness" ["true"]
+		"rgb Kr" [0.23749999702 0.23749999702 0.23749999702]
+		"string type" ["glass"]
+		"float index" [1.5]
+		"rgb Kt" [1.0 1.0 1.0]
+
+	MakeNamedMaterial "lambert1"
+		"string type" ["matte"]
+		"rgb Kd" [0.5 0.5 0.5]
+
+	MakeNamedMaterial "PBRTMirrorMaterial1"
+		"rgb Kr" [0.129299998283 0.129299998283 0.129299998283]
+		"string type" ["mirror"]
+
+	MakeNamedMaterial "PBRTMatte_Carpet"
+		"float sigma" [0.0]
+		"string type" ["matte"]
+		"rgb Kd" [0.0250000003725 0.0137837948278 0.00610000034794]
+
+	MakeNamedMaterial "PBRTMatte_Floor"
+		"float sigma" [0.0]
+		"string type" ["matte"]
+		"rgb Kd" [0.128999993205 0.119660273194 0.1132619977]
+
+	ObjectBegin "|MIRROR_COVER_MESH"
+		# Maya Geometry : |MIRROR_COVER_MESH|MIRROR_COVER_MESHShape
+		NamedMaterial "PBRTPlastic"
+		Include "__MIRROR_COVER_MESH__MIRROR_COVER_MESHShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |MIRROR_COVER_MESH
+		ObjectInstance "|MIRROR_COVER_MESH"
+	AttributeEnd
+
+	ObjectBegin "|SHOWER_LIGHTS|LIGHT_R|polySurface10"
+		# Maya Geometry : |SHOWER_LIGHTS|LIGHT_R|polySurface10|polySurfaceShape10
+		NamedMaterial "PBRTMetal"
+		Include "__SHOWER_LIGHTS__LIGHT_R__polySurface10__polySurfaceShape10.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |SHOWER_LIGHTS|LIGHT_R|polySurface10
+		ObjectInstance "|SHOWER_LIGHTS|LIGHT_R|polySurface10"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|SCREENGLASS"
+		# Maya Geometry : |ShowerScreen|SCREENGLASS|SCREENGLASSShape
+		NamedMaterial "PBRTGlassMaterial1"
+		Include "__ShowerScreen__SCREENGLASS__SCREENGLASSShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|SCREENGLASS
+		ObjectInstance "|ShowerScreen|SCREENGLASS"
+	AttributeEnd
+
+	ObjectBegin "|Counter_Light|polySurface5"
+		# Maya Geometry : |Counter_Light|polySurface5|polySurfaceShape5
+		NamedMaterial "lambert1"
+		Include "__Counter_Light__polySurface5__polySurfaceShape5.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Counter_Light|polySurface5
+		ObjectInstance "|Counter_Light|polySurface5"
+	AttributeEnd
+
+	ObjectBegin "|SHOWER_LIGHTS|LIGHT_L|polySurface8"
+		# Maya Geometry : |SHOWER_LIGHTS|LIGHT_L|polySurface8|polySurfaceShape8
+		NamedMaterial "PBRTMetal"
+		Include "__SHOWER_LIGHTS__LIGHT_L__polySurface8__polySurfaceShape8.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |SHOWER_LIGHTS|LIGHT_L|polySurface8
+		ObjectInstance "|SHOWER_LIGHTS|LIGHT_L|polySurface8"
+	AttributeEnd
+
+	ObjectBegin "|SHOWER_LIGHTS|LIGHT_L|polySurface7"
+		# Maya Geometry : |SHOWER_LIGHTS|LIGHT_L|polySurface7|polySurfaceShape7
+		NamedMaterial "lambert1"
+		Include "__SHOWER_LIGHTS__LIGHT_L__polySurface7__polySurfaceShape7.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |SHOWER_LIGHTS|LIGHT_L|polySurface7
+		ObjectInstance "|SHOWER_LIGHTS|LIGHT_L|polySurface7"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|Panels|Top_Left"
+		# Maya Geometry : |ShowerScreen|Panels|Top_Left|Top_LeftShape
+		NamedMaterial "PBRTPlastic"
+		Include "__ShowerScreen__Panels__Top_Left__Top_LeftShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|Panels|Top_Left
+		ObjectInstance "|ShowerScreen|Panels|Top_Left"
+	AttributeEnd
+
+	ObjectBegin "|COUNTER_MESH1|SINK_MESH1"
+		# Maya Geometry : |COUNTER_MESH1|SINK_MESH1|SINK_MESH1Shape
+		NamedMaterial "PBRTMetal"
+		Include "__COUNTER_MESH1__SINK_MESH1__SINK_MESH1Shape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |COUNTER_MESH1|SINK_MESH1
+		ObjectInstance "|COUNTER_MESH1|SINK_MESH1"
+	AttributeEnd
+
+	ObjectBegin "|Shelve"
+		# Maya Geometry : |Shelve|ShelveShape
+		NamedMaterial "PBRTPlastic"
+		Include "__Shelve__ShelveShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Shelve
+		ObjectInstance "|Shelve"
+	AttributeEnd
+
+	ObjectBegin "|Counter_Light_Mount"
+		# Maya Geometry : |Counter_Light_Mount|Counter_Light_MountShape
+		NamedMaterial "lambert1"
+		Include "__Counter_Light_Mount__Counter_Light_MountShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Counter_Light_Mount
+		ObjectInstance "|Counter_Light_Mount"
+	AttributeEnd
+
+	ObjectBegin "|MIRROR_SURFACE_MESH"
+		# Maya Geometry : |MIRROR_SURFACE_MESH|MIRROR_SURFACE_MESHShape
+		NamedMaterial "PBRTMirrorMaterial1"
+		Include "__MIRROR_SURFACE_MESH__MIRROR_SURFACE_MESHShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |MIRROR_SURFACE_MESH
+		ObjectInstance "|MIRROR_SURFACE_MESH"
+	AttributeEnd
+
+	ObjectBegin "|CounterPole_Right|polySurface1"
+		# Maya Geometry : |CounterPole_Right|polySurface1|polySurfaceShape1
+		NamedMaterial "lambert1"
+		Include "__CounterPole_Right__polySurface1__polySurfaceShape1.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |CounterPole_Right|polySurface1
+		ObjectInstance "|CounterPole_Right|polySurface1"
+	AttributeEnd
+
+	ObjectBegin "|CounterPole_Right|polySurface2"
+		# Maya Geometry : |CounterPole_Right|polySurface2|polySurfaceShape2
+		NamedMaterial "PBRTPlastic"
+		Include "__CounterPole_Right__polySurface2__polySurfaceShape2.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |CounterPole_Right|polySurface2
+		ObjectInstance "|CounterPole_Right|polySurface2"
+	AttributeEnd
+
+	ObjectBegin "|Carpet"
+		# Maya Geometry : |Carpet|CarpetShape
+		NamedMaterial "PBRTMatte_Carpet"
+		Include "__Carpet__CarpetShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Carpet
+		ObjectInstance "|Carpet"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|MESH"
+		# Maya Geometry : |ShowerScreen|MESH|MESHShape
+		NamedMaterial "lambert1"
+		Include "__ShowerScreen__MESH__MESHShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|MESH
+		ObjectInstance "|ShowerScreen|MESH"
+	AttributeEnd
+
+	ObjectBegin "|COUNTER_MESH1|TAP_MESH"
+		# Maya Geometry : |COUNTER_MESH1|TAP_MESH|TAP_MESHShape
+		NamedMaterial "PBRTMetal"
+		Include "__COUNTER_MESH1__TAP_MESH__TAP_MESHShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |COUNTER_MESH1|TAP_MESH
+		ObjectInstance "|COUNTER_MESH1|TAP_MESH"
+	AttributeEnd
+
+	ObjectBegin "|COUNTER_MESH1|Front_Panel"
+		# Maya Geometry : |COUNTER_MESH1|Front_Panel|Front_PanelShape
+		NamedMaterial "PBRTPlastic"
+		Include "__COUNTER_MESH1__Front_Panel__Front_PanelShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |COUNTER_MESH1|Front_Panel
+		ObjectInstance "|COUNTER_MESH1|Front_Panel"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|Panels|Middle_Left"
+		# Maya Geometry : |ShowerScreen|Panels|Middle_Left|Middle_LeftShape
+		NamedMaterial "PBRTPlastic"
+		Include "__ShowerScreen__Panels__Middle_Left__Middle_LeftShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|Panels|Middle_Left
+		ObjectInstance "|ShowerScreen|Panels|Middle_Left"
+	AttributeEnd
+
+	ObjectBegin "|SHOWER_LIGHTS|LIGHT_R|polySurface9"
+		# Maya Geometry : |SHOWER_LIGHTS|LIGHT_R|polySurface9|polySurfaceShape9
+		NamedMaterial "lambert1"
+		Include "__SHOWER_LIGHTS__LIGHT_R__polySurface9__polySurfaceShape9.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |SHOWER_LIGHTS|LIGHT_R|polySurface9
+		ObjectInstance "|SHOWER_LIGHTS|LIGHT_R|polySurface9"
+	AttributeEnd
+
+	ObjectBegin "|Counter_Light|polySurface6"
+		# Maya Geometry : |Counter_Light|polySurface6|polySurfaceShape6
+		NamedMaterial "PBRTMetal"
+		Include "__Counter_Light__polySurface6__polySurfaceShape6.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Counter_Light|polySurface6
+		ObjectInstance "|Counter_Light|polySurface6"
+	AttributeEnd
+
+	ObjectBegin "|Shower"
+		# Maya Geometry : |Shower|ShowerShape
+		NamedMaterial "PBRTMetal"
+		Include "__Shower__ShowerShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Shower
+		ObjectInstance "|Shower"
+	AttributeEnd
+
+	ObjectBegin "|CounterPole_Left|pasted__CounterPole|pasted__polySurface2"
+		# Maya Geometry : |CounterPole_Left|pasted__CounterPole|pasted__polySurface2|pasted__polySurfaceShape2
+		NamedMaterial "PBRTPlastic"
+		Include "__CounterPole_Left__pasted__CounterPole__pasted__polySurface2__pasted__polySurfaceShape2.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |CounterPole_Left|pasted__CounterPole|pasted__polySurface2
+		ObjectInstance "|CounterPole_Left|pasted__CounterPole|pasted__polySurface2"
+	AttributeEnd
+
+	ObjectBegin "|CounterPole_Left|pasted__CounterPole|pasted__polySurface1"
+		# Maya Geometry : |CounterPole_Left|pasted__CounterPole|pasted__polySurface1|pasted__polySurfaceShape1
+		NamedMaterial "PBRTMetal"
+		Include "__CounterPole_Left__pasted__CounterPole__pasted__polySurface1__pasted__polySurfaceShape1.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |CounterPole_Left|pasted__CounterPole|pasted__polySurface1
+		ObjectInstance "|CounterPole_Left|pasted__CounterPole|pasted__polySurface1"
+	AttributeEnd
+
+	ObjectBegin "|Walls|polySurface4"
+		# Maya Geometry : |Walls|polySurface4|polySurfaceShape4
+		NamedMaterial "PBRTMatte_Floor"
+		Include "__Walls__polySurface4__polySurfaceShape4.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Walls|polySurface4
+		ObjectInstance "|Walls|polySurface4"
+	AttributeEnd
+
+	ObjectBegin "|Walls|polySurface3"
+		# Maya Geometry : |Walls|polySurface3|polySurfaceShape3
+		NamedMaterial "PBRTPlastic"
+		Include "__Walls__polySurface3__polySurfaceShape3.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |Walls|polySurface3
+		ObjectInstance "|Walls|polySurface3"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|Panels|Bottom_Left_B"
+		# Maya Geometry : |ShowerScreen|Panels|Bottom_Left_B|Bottom_Left_BShape
+		NamedMaterial "PBRTPlastic"
+		Include "__ShowerScreen__Panels__Bottom_Left_B__Bottom_Left_BShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|Panels|Bottom_Left_B
+		ObjectInstance "|ShowerScreen|Panels|Bottom_Left_B"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|Panels|Bottom_Left_A"
+		# Maya Geometry : |ShowerScreen|Panels|Bottom_Left_A|Bottom_Left_AShape
+		NamedMaterial "PBRTPlastic"
+		Include "__ShowerScreen__Panels__Bottom_Left_A__Bottom_Left_AShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|Panels|Bottom_Left_A
+		ObjectInstance "|ShowerScreen|Panels|Bottom_Left_A"
+	AttributeEnd
+
+	ObjectBegin "|COUNTER_MESH1"
+		# Maya Geometry : |COUNTER_MESH1|COUNTER_MESH1Shape
+		NamedMaterial "PBRTPlastic"
+		Include "__COUNTER_MESH1__COUNTER_MESH1Shape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |COUNTER_MESH1
+		ObjectInstance "|COUNTER_MESH1"
+	AttributeEnd
+
+	ObjectBegin "|ShowerScreen|Panels|Top_Right"
+		# Maya Geometry : |ShowerScreen|Panels|Top_Right|Top_RightShape
+		NamedMaterial "PBRTPlastic"
+		Include "__ShowerScreen__Panels__Top_Right__Top_RightShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |ShowerScreen|Panels|Top_Right
+		ObjectInstance "|ShowerScreen|Panels|Top_Right"
+	AttributeEnd
+
+	ObjectBegin "|MAIN_WALL"
+		# Maya Geometry : |MAIN_WALL|MAIN_WALLShape
+		NamedMaterial "PBRTPlastic"
+		Include "__MAIN_WALL__MAIN_WALLShape.pbrt"
+	ObjectEnd
+
+	AttributeBegin
+		# Maya Transform : |MAIN_WALL
+		ObjectInstance "|MAIN_WALL"
+	AttributeEnd
+
+WorldEnd

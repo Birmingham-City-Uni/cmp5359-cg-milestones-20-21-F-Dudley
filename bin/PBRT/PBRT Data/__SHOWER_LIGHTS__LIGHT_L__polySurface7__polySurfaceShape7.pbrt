@@ -1,0 +1,35 @@
+# Converted from "E:/Programming Files/C++/UNI - Semester 2/cmp5359-cg-milestones-20-21-F-Dudley/code/Maya Project/Project\renderData\__SHOWER_LIGHTS__LIGHT_L__polySurface7__polySurfaceShape7.obj" by obj2pbrt
+# Scene bounds: (-5.933540, 9.798241, -4.715449) - (-1.342707, 9.798241, -4.528270)
+
+
+# Name "polySurface7"
+AttributeBegin
+Shape "trianglemesh"
+  "point3 P" [ 
+	-1.343557 9.798240662 -4.715448856
+	-1.342707038 9.798240662 -4.552145958
+	-5.932690144 9.798240662 -4.528269768
+	-5.933539867 9.798240662 -4.691573143
+]
+  "normal N" [ 
+	0 -1 -0
+	0 -1 -0
+	0 -1 -0
+	0 -1 -0
+]
+  "point2 st" [ 
+	0.375 0.75
+	0.625 0.75
+	0.625 1
+	0.375 1
+]
+  "integer indices" [ 
+	0 1 2
+	0 2 3
+	]
+
+"  float alpha" [1.000000]
+"  float shadowalpha" [1.000000]
+AttributeEnd
+
+

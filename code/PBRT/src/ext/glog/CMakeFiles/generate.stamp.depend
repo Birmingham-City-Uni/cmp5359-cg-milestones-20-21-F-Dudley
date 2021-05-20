@@ -1,0 +1,39 @@
+# CMake generation dependency list for this directory.
+D:/Software/Cmake/share/cmake-3.20/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+D:/Software/Cmake/share/cmake-3.20/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CMakeConfigurableFile.in
+D:/Software/Cmake/share/cmake-3.20/Modules/CMakePackageConfigHelpers.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CPack.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CPackComponent.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckCSourceCompiles.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckCXXCompilerFlag.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckCXXSourceCompiles.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckFunctionExists.c
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckFunctionExists.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckIncludeFile.c.in
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckIncludeFile.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckIncludeFile.cxx.in
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckIncludeFileCXX.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckLibraryExists.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckStructHasMember.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckSymbolExists.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckTypeSize.c.in
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckTypeSize.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindPackageMessage.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindThreads.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/Internal/CheckCompilerFlag.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/Internal/CheckSourceCompiles.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/WriteBasicConfigVersionFile.cmake
+D:/Software/Cmake/share/cmake-3.20/Templates/CPackConfig.cmake.in
+D:/Software/PBRT/PBRT Build/CMakeFiles/CheckTypeSize/HAVE_UINT16_T.c
+D:/Software/PBRT/PBRT Build/CMakeFiles/CheckTypeSize/HAVE_U_INT16_T.c
+D:/Software/PBRT/PBRT Build/CMakeFiles/CheckTypeSize/HAVE___UINT16.c
+D:/Software/PBRT/pbrt-v3/src/ext/glog/CMakeLists.txt
+D:/Software/PBRT/pbrt-v3/src/ext/glog/cmake/DetermineGflagsNamespace.cmake
+D:/Software/PBRT/pbrt-v3/src/ext/glog/glog-config.cmake.in
+D:/Software/PBRT/pbrt-v3/src/ext/glog/src/config.h.cmake.in
+D:/Software/PBRT/pbrt-v3/src/ext/glog/src/glog/logging.h.in
+D:/Software/PBRT/pbrt-v3/src/ext/glog/src/glog/raw_logging.h.in
+D:/Software/PBRT/pbrt-v3/src/ext/glog/src/glog/stl_logging.h.in
+D:/Software/PBRT/pbrt-v3/src/ext/glog/src/glog/vlog_is_on.h.in

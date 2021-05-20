@@ -1,0 +1,159 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt
+  api.cpp
+D:\Software\PBRT\PBRT Build\src\ext\glog\glog/logging.h(714,1): warning C4018: '<': signed/unsigned mismatch
+D:\Software\PBRT\pbrt-v3\src\materials/hair.h(168): message : see reference to function template instantiation 'std::string *google::Check_LTImpl<unsigned __int64,__int64>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned __int64,
+              T2=__int64
+          ]
+  bssrdf.cpp
+  camera.cpp
+  efloat.cpp
+  error.cpp
+  fileutil.cpp
+  film.cpp
+  filter.cpp
+  floatfile.cpp
+  geometry.cpp
+  imageio.cpp
+  integrator.cpp
+  interaction.cpp
+  interpolation.cpp
+  light.cpp
+  lightdistrib.cpp
+  lowdiscrepancy.cpp
+  material.cpp
+  medium.cpp
+  memory.cpp
+  Generating Code...
+  Compiling...
+  microfacet.cpp
+  parallel.cpp
+  paramset.cpp
+  parser.cpp
+  primitive.cpp
+  progressreporter.cpp
+  quaternion.cpp
+  reflection.cpp
+  sampler.cpp
+  sampling.cpp
+  scene.cpp
+  shape.cpp
+  sobolmatrices.cpp
+  spectrum.cpp
+  stats.cpp
+  texture.cpp
+  transform.cpp
+  bvh.cpp
+D:\Software\PBRT\PBRT Build\src\ext\glog\glog/logging.h(713,1): warning C4018: '<=': signed/unsigned mismatch
+D:\Software\PBRT\pbrt-v3\src\accelerators\bvh.cpp(108): message : see reference to function template instantiation 'std::string *google::Check_LEImpl<unsigned int,int>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned int,
+              T2=int
+          ]
+  kdtreeaccel.cpp
+  environment.cpp
+  Generating Code...
+  Compiling...
+  orthographic.cpp
+  perspective.cpp
+  realistic.cpp
+  lodepng.cpp
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(798,34): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(1458,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(1462,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(1534,86): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(3478,46): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(3492,54): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(4326,75): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(4374,41): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(4454,59): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\lodepng.cpp(5397,38): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  rply.cpp
+  targa.cpp
+  box.cpp
+  gaussian.cpp
+  mitchell.cpp
+  sinc.cpp
+  ao.cpp
+  bdpt.cpp
+  directlighting.cpp
+  mlt.cpp
+  path.cpp
+  sppm.cpp
+  volpath.cpp
+  whitted.cpp
+  diffuse.cpp
+  distant.cpp
+  Generating Code...
+  Compiling...
+  goniometric.cpp
+  infinite.cpp
+  point.cpp
+  projection.cpp
+  spot.cpp
+  disney.cpp
+  fourier.cpp
+  glass.cpp
+  hair.cpp
+D:\Software\PBRT\PBRT Build\src\ext\glog\glog/logging.h(714,1): warning C4018: '<': signed/unsigned mismatch
+D:\Software\PBRT\pbrt-v3\src\materials/hair.h(168): message : see reference to function template instantiation 'std::string *google::Check_LTImpl<unsigned __int64,__int64>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned __int64,
+              T2=__int64
+          ]
+  kdsubsurface.cpp
+  matte.cpp
+  metal.cpp
+  mirror.cpp
+  mixmat.cpp
+  plastic.cpp
+  substrate.cpp
+  subsurface.cpp
+  translucent.cpp
+  uber.cpp
+  grid.cpp
+  Generating Code...
+  Compiling...
+  homogeneous.cpp
+  halton.cpp
+  maxmin.cpp
+  random.cpp
+  sobol.cpp
+  stratified.cpp
+  zerotwosequence.cpp
+  cone.cpp
+  curve.cpp
+  cylinder.cpp
+  disk.cpp
+  heightfield.cpp
+  hyperboloid.cpp
+  loopsubdiv.cpp
+  nurbs.cpp
+  paraboloid.cpp
+  plymesh.cpp
+  sphere.cpp
+  bilerp.cpp
+  checkerboard.cpp
+  Generating Code...
+  Compiling...
+  constant.cpp
+  dots.cpp
+  fbm.cpp
+  imagemap.cpp
+  marble.cpp
+  mix.cpp
+  ptex.cpp
+  scale.cpp
+  uv.cpp
+  windy.cpp
+  wrinkled.cpp
+  Generating Code...
+  ArHosekSkyModel.c
+D:\Software\PBRT\pbrt-v3\src\ext\ArHosekSkyModel.c(529,1): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  triangle.cpp
+  triangle.cpp
+  pbrt.vcxproj -> D:\Software\PBRT\PBRT Build\Release\libpbrt.lib

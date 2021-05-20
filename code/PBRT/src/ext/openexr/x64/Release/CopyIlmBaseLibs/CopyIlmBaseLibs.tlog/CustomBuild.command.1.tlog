@@ -1,0 +1,26 @@
+^D:\SOFTWARE\PBRT\PBRT BUILD\CMAKEFILES\A192C657888A080B3C785035374DC7CA\COPYILMBASELIBS.RULE
+setlocal
+D:\Software\Cmake\bin\cmake.exe -E copy_directory "D:/Software/PBRT/PBRT Build/src/ext/openexr/IlmBase/Half/" "D:/Software/PBRT/PBRT Build/src/ext/openexr/OpenEXR/IlmImf/"
+if %errorlevel% neq 0 goto :cmEnd
+D:\Software\Cmake\bin\cmake.exe -E copy_directory "D:/Software/PBRT/PBRT Build/src/ext/openexr/IlmBase/IlmThread/" "D:/Software/PBRT/PBRT Build/src/ext/openexr/OpenEXR/IlmImf/"
+if %errorlevel% neq 0 goto :cmEnd
+D:\Software\Cmake\bin\cmake.exe -E copy_directory "D:/Software/PBRT/PBRT Build/src/ext/openexr/IlmBase/Iex/" "D:/Software/PBRT/PBRT Build/src/ext/openexr/OpenEXR/IlmImf/"
+if %errorlevel% neq 0 goto :cmEnd
+D:\Software\Cmake\bin\cmake.exe -E copy_directory "D:/Software/PBRT/PBRT Build/src/ext/openexr/IlmBase/Imath/" "D:/Software/PBRT/PBRT Build/src/ext/openexr/OpenEXR/IlmImf/"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\SOFTWARE\PBRT\PBRT-V3\SRC\EXT\OPENEXR\CMAKELISTS.TXT
+setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/src/ext/openexr/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,18 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/src/ext/zlib/CMakeLists.txt
+  adler32.c
+  compress.c
+  crc32.c
+  deflate.c
+  gzclose.c
+  gzlib.c
+  gzread.c
+  gzwrite.c
+  inflate.c
+  infback.c
+  inftrees.c
+  inffast.c
+  trees.c
+  uncompr.c
+  zutil.c
+  Generating Code...
+  zlibstatic.vcxproj -> D:\Software\PBRT\PBRT Build\src\ext\zlib\Release\zlibstatic.lib

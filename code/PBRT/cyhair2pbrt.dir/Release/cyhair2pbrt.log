@@ -1,0 +1,4 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt
+  cyhair2pbrt.cpp
+D:\Software\PBRT\pbrt-v3\src\tools\cyhair2pbrt.cpp(428,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  cyhair2pbrt.vcxproj -> D:\Software\PBRT\PBRT Build\Release\cyhair2pbrt.exe

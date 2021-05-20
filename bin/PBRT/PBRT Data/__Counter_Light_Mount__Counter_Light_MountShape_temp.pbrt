@@ -1,0 +1,34 @@
+# Converted from "E:/Programming Files/C++/UNI - Semester 2/cmp5359-cg-milestones-20-21-F-Dudley/code/Maya Project/Project\renderData\__Counter_Light_Mount__Counter_Light_MountShape.obj" by obj2pbrt
+# Scene bounds: (-7.041082, 9.451445, -0.754240) - (-6.341929, 9.871538, 6.863658)
+
+
+# Name "Counter_Light_Mount"
+AttributeBegin
+# Material unspecified in OBJ file
+Shape "trianglemesh"
+  "point3 P" [ 
+	-6.341928959 9.871538162 6.863657951
+	-7.041081905 9.451444626 -0.7542399764
+	-6.341928959 9.871538162 -0.7542399764
+	-7.041081905 9.451444626 6.863657951
+]
+  "normal N" [ 
+	0.5150380135 -0.8571670055 -0
+	0.5150380135 -0.8571670055 -0
+	0.5150380135 -0.8571670055 -0
+	0.5150380135 -0.8571670055 -0
+]
+  "point2 st" [ 
+	1 0
+	0 1
+	1 1
+	0 0
+]
+  "integer indices" [ 
+	0 1 2
+	0 3 1
+	]
+
+AttributeEnd
+
+

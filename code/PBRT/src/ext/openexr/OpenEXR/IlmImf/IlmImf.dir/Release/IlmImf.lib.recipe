@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Half\Release\eLut.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Half\Release\toFloat.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\x64\Release\CopyIlmBaseLibs</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\Release\b44ExpLogTable.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\Release\dwaLookups.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

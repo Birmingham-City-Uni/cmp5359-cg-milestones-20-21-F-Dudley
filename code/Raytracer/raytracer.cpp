@@ -339,24 +339,6 @@ Collideable_List bathroom_scene() {
     return Collideable_List(std::make_shared<BVH_Node>(world_));
 }
 
-Collideable_List carloTest_scene() {
-    Collideable_List world_;
-
-    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
-    auto carpetMat = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
-    auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.2);
-
-    Vec3f baseModelPos = Vec3f(0);
-
-    Model* showerScreen = new Model("../Models/bathroom_ShowerScreen.obj");
-    addModelToScene(world_, showerScreen, baseModelPos, carpetMat);
-
-    Model* shower = new Model("../Models/bathroom_Shower.obj");
-    addModelToScene(world_, shower, baseModelPos, metalMat);
-
-    return world_;
-}
-
 int main(int argc, char **argv)
 {
     // initialise SDL2
@@ -368,7 +350,7 @@ int main(int argc, char **argv)
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = screenSurface->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int spp = 10;
+    const int spp = 1;
     const int max_depth = 50;
 
     const float scale = 1.f / spp;
@@ -387,7 +369,7 @@ int main(int argc, char **argv)
     Camera camera(cam_position, cam_aimPosition, cam_vup, cam_fov, aspect_ratio, aperture, cam_distanceToFocus);
 
     // World Variables
-    Collideable_List world = carloTest_scene();
+    Collideable_List world = bathroom_scene();
 
     // -- //
 
@@ -475,7 +457,7 @@ int main(int argc, char **argv)
 
         if (firstRun) {
             // Output Drawn TGAImage.
-            image.flip_horizontally();
+            image.flip_vertically();
             image.write_tga_file("raytracerOutput.tga");
         }
 

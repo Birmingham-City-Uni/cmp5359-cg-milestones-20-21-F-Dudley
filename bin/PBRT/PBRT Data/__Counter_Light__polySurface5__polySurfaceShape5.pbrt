@@ -1,0 +1,35 @@
+# Converted from "E:/Programming Files/C++/UNI - Semester 2/cmp5359-cg-milestones-20-21-F-Dudley/code/Maya Project/Project\renderData\__Counter_Light__polySurface5__polySurfaceShape5.obj" by obj2pbrt
+# Scene bounds: (-6.606937, 9.601093, -0.531830) - (-6.392144, 9.730154, 6.735328)
+
+
+# Name "polySurface5"
+AttributeBegin
+Shape "trianglemesh"
+  "point3 P" [ 
+	-6.606936932 9.601093292 -0.5318300128
+	-6.392144203 9.730154037 -0.5318300128
+	-6.392144203 9.730154037 6.735328197
+	-6.606936932 9.601093292 6.735328197
+]
+  "normal N" [ 
+	0.5150380135 -0.8571670055 0
+	0.5150380135 -0.8571670055 0
+	0.5150380135 -0.8571670055 0
+	0.5150380135 -0.8571670055 0
+]
+  "point2 st" [ 
+	0.375 0.75
+	0.625 0.75
+	0.625 1
+	0.375 1
+]
+  "integer indices" [ 
+	0 1 2
+	0 2 3
+	]
+
+"  float alpha" [1.000000]
+"  float shadowalpha" [1.000000]
+AttributeEnd
+
+

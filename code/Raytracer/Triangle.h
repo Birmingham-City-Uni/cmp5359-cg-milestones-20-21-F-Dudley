@@ -69,13 +69,14 @@ public:
 		float t = v0v2.dotProduct(qvec) * invDeterminat;
 		if (t < 0) return false;
 
-		_record.point = _ray.at(t);
-		_record.t = t;
+		if (t > 1e-3 && t < _t_max && t > _t_min) {
+			_record.point = _ray.at(t);
+			_record.t = t;
 
-		// FIX NORMAL CALCULATIONS
-		_record.normal = normals;
-		_record.material_ptr = material;
-
+			_record.normal = normals;
+			_record.material_ptr = material;
+		}
+		else return false;
 	}
 
 	inline virtual bool Bounding_Box(AABB& _outputBox) const override {

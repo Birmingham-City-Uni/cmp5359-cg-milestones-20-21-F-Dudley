@@ -1,0 +1,35 @@
+# Converted from "E:/Programming Files/C++/UNI - Semester 2/cmp5359-cg-milestones-20-21-F-Dudley/code/Maya Project/Project\renderData\__SHOWER_LIGHTS__LIGHT_R__polySurface9__polySurfaceShape9.obj" by obj2pbrt
+# Scene bounds: (0.755599, 9.798241, -4.722984) - (5.346431, 9.798241, -4.535806)
+
+
+# Name "polySurface9"
+AttributeBegin
+Shape "trianglemesh"
+  "point3 P" [ 
+	5.345582008 9.798240662 -4.722983837
+	5.346430779 9.798240662 -4.559680939
+	0.7564479709 9.798240662 -4.535806179
+	0.7555990219 9.798240662 -4.699108124
+]
+  "normal N" [ 
+	0 -1 0
+	0 -1 0
+	0 -1 0
+	0 -1 0
+]
+  "point2 st" [ 
+	0.375 0.75
+	0.625 0.75
+	0.625 1
+	0.375 1
+]
+  "integer indices" [ 
+	0 1 2
+	0 2 3
+	]
+
+"  float alpha" [1.000000]
+"  float shadowalpha" [1.000000]
+AttributeEnd
+
+

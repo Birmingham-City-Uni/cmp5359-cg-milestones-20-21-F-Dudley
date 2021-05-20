@@ -1,0 +1,33 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/src/ext/glog/CMakeLists.txt
+  demangle.cc
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\demangle.cc(343,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  logging.cc
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(200,36): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(216,37): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(631,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(764,68): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(789,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(799,5): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1082,53): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1082,53): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1343,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1343,40): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1416,56): warning C4267: 'argument': conversion from 'size_t' to 'const _Ty', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1438,8): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1516,70): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(1529,70): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  raw_logging.cc
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\raw_logging.cc(153,3): warning C4267: 'argument': conversion from 'size_t' to 'unsigned int', possible loss of data
+  symbolize.cc
+  utilities.cc
+  vlog_is_on.cc
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\vlog_is_on.cc(163,49): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\vlog_is_on.cc(163,49): warning C4267: 'initializing': conversion from 'size_t' to 'const int', possible loss of data
+  Generating Code...
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\logging.cc(2024): warning C4722: 'google::LogMessageFatal::~LogMessageFatal': destructor never returns, potential memory leak
+  port.cc
+  glog.vcxproj -> D:\Software\PBRT\PBRT Build\src\ext\glog\Release\glog.lib

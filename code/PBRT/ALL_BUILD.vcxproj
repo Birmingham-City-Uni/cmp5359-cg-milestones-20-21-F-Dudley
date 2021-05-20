@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2F4B16A6-381C-3C2C-BDE2-5EB2AC0C2208}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Software\PBRT\pbrt-v3\src\ext\zlib;D:\Software\PBRT\PBRT Build\src\ext\zlib;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Imath;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Half;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Iex;D:\Software\PBRT\pbrt-v3\src\ext\openexr\OpenEXR\IlmImf;D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\config;D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\config;D:\Software\PBRT\pbrt-v3\src\ext\glog\src;D:\Software\PBRT\PBRT Build\src\ext\glog;D:\Software\PBRT\pbrt-v3\src\ext\ptex\src\ptex;D:\Software\PBRT\pbrt-v3\src;D:\Software\PBRT\pbrt-v3\src\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Software\PBRT\pbrt-v3\src\ext\zlib;D:\Software\PBRT\PBRT Build\src\ext\zlib;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Imath;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Half;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Iex;D:\Software\PBRT\pbrt-v3\src\ext\openexr\OpenEXR\IlmImf;D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\config;D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\config;D:\Software\PBRT\pbrt-v3\src\ext\glog\src;D:\Software\PBRT\PBRT Build\src\ext\glog;D:\Software\PBRT\pbrt-v3\src\ext\ptex\src\ptex;D:\Software\PBRT\pbrt-v3\src;D:\Software\PBRT\pbrt-v3\src\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Software\PBRT\pbrt-v3\src\ext\zlib;D:\Software\PBRT\PBRT Build\src\ext\zlib;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Imath;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Half;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Iex;D:\Software\PBRT\pbrt-v3\src\ext\openexr\OpenEXR\IlmImf;D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\config;D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\config;D:\Software\PBRT\pbrt-v3\src\ext\glog\src;D:\Software\PBRT\PBRT Build\src\ext\glog;D:\Software\PBRT\pbrt-v3\src\ext\ptex\src\ptex;D:\Software\PBRT\pbrt-v3\src;D:\Software\PBRT\pbrt-v3\src\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Software\PBRT\pbrt-v3\src\ext\zlib;D:\Software\PBRT\PBRT Build\src\ext\zlib;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Imath;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Half;D:\Software\PBRT\pbrt-v3\src\ext\openexr\IlmBase\Iex;D:\Software\PBRT\pbrt-v3\src\ext\openexr\OpenEXR\IlmImf;D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\config;D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\config;D:\Software\PBRT\pbrt-v3\src\ext\glog\src;D:\Software\PBRT\PBRT Build\src\ext\glog;D:\Software\PBRT\pbrt-v3\src\ext\ptex\src\ptex;D:\Software\PBRT\pbrt-v3\src;D:\Software\PBRT\pbrt-v3\src\core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Software\PBRT\pbrt-v3\CMakeLists.txt">
+      <StdOutEncoding>UTF-8</StdOutEncoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompilerABI.c;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompilerABI.cpp;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCompilerIdDetection.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeConfigurableFile.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompileFeatures.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerABI.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerId.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeFindBinUtils.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseLibraryArchitecture.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystem.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCompilerCommon.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.c.in;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CompilerId\VS-10.vcxproj.in;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageMessage.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindThreads.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindZLIB.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\FeatureTesting.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-Determine-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;D:\Software\PBRT\pbrt-v3\cmake\FindASan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindMSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindSanitizers.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindTSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindUBSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\sanitize-helpers.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Software\PBRT\PBRT Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompilerABI.c;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompilerABI.cpp;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCompilerIdDetection.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeConfigurableFile.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompileFeatures.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerABI.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerId.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeFindBinUtils.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseLibraryArchitecture.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystem.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCompilerCommon.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.c.in;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CompilerId\VS-10.vcxproj.in;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageMessage.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindThreads.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindZLIB.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\FeatureTesting.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-Determine-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;D:\Software\PBRT\pbrt-v3\cmake\FindASan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindMSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindSanitizers.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindTSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindUBSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\sanitize-helpers.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Software\PBRT\PBRT Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompilerABI.c;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompilerABI.cpp;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCompilerIdDetection.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeConfigurableFile.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompileFeatures.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerABI.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerId.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeFindBinUtils.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseLibraryArchitecture.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystem.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCompilerCommon.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.c.in;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CompilerId\VS-10.vcxproj.in;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageMessage.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindThreads.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindZLIB.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\FeatureTesting.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-Determine-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;D:\Software\PBRT\pbrt-v3\cmake\FindASan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindMSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindSanitizers.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindTSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindUBSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\sanitize-helpers.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Software\PBRT\PBRT Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCCompilerABI.c;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXCompilerABI.cpp;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCXXInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCommonLanguageInclude.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeCompilerIdDetection.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeConfigurableFile.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompileFeatures.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerABI.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineCompilerId.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeDetermineSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeFindBinUtils.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeGenericSystem.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeInitializeConfigs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeLanguageInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeParseLibraryArchitecture.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCCompiler.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeRCInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystem.cmake.in;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInformation.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeSystemSpecificInitialize.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCXXCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestCompilerCommon.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CMakeTestRCCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckCXXSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.c.in;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFile.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckIncludeFiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CheckLibraryExists.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\CompilerId\VS-10.vcxproj.in;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageHandleStandardArgs.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindPackageMessage.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindThreads.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\FindZLIB.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceCompiles.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\CheckSourceRuns.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Internal\FeatureTesting.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-Determine-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-C.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows-MSVC.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\Windows.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\Platform\WindowsPaths.cmake;D:\Software\Cmake\share\cmake-3.20\Modules\SelectLibraryConfigurations.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeCXXCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeRCCompiler.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\3.20.2\CMakeSystem.cmake;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c;D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;D:\Software\PBRT\pbrt-v3\cmake\FindASan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindMSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindSanitizers.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindTSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\FindUBSan.cmake;D:\Software\PBRT\pbrt-v3\cmake\sanitize-helpers.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Software\PBRT\PBRT Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\ZERO_CHECK.vcxproj">
+      <Project>{45C59E8C-69ED-3608-9DF3-D461C23A5B57}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Half\Half.vcxproj">
+      <Project>{A37911F5-1C4F-3283-AF6D-9A2506BFFA1E}</Project>
+      <Name>Half</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Iex\Iex.vcxproj">
+      <Project>{ABD92305-01FC-37A5-AEB9-1A21B0A15A8D}</Project>
+      <Name>Iex</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\IexMath\IexMath.vcxproj">
+      <Project>{4979CFF4-808F-359E-B07B-630C512E0DC4}</Project>
+      <Name>IexMath</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\IlmImf.vcxproj">
+      <Project>{AC329EE0-3320-387B-92D1-9ED2782A279F}</Project>
+      <Name>IlmImf</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\IlmImf-obj.vcxproj">
+      <Project>{53BD6C71-C81D-31D1-BEFC-AD02B06EA4CC}</Project>
+      <Name>IlmImf-obj</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\IlmThread\IlmThread.vcxproj">
+      <Project>{EAC7AA8B-D90E-3B99-8779-82C4C0DC0CEF}</Project>
+      <Name>IlmThread</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Imath\Imath.vcxproj">
+      <Project>{B6D0F1AA-7FB3-311F-B186-A80384D03136}</Project>
+      <Name>Imath</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\ptex\Ptex_static.vcxproj">
+      <Project>{45E3B50E-C63A-3228-B474-F3DB35383370}</Project>
+      <Name>Ptex_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\b44ExpLogTable.vcxproj">
+      <Project>{9C83B4D1-ABBC-3837-AE03-60AE4193A81E}</Project>
+      <Name>b44ExpLogTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\bsdftest.vcxproj">
+      <Project>{09749E0E-8D22-3734-B60E-3DEB87B03FEA}</Project>
+      <Name>bsdftest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\cyhair2pbrt.vcxproj">
+      <Project>{3D1A57F7-3328-38CE-A786-904F2551DCD5}</Project>
+      <Name>cyhair2pbrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\glog\demangle_unittest.vcxproj">
+      <Project>{2A724E8A-CD19-3C28-94A7-F00E1514D06B}</Project>
+      <Name>demangle_unittest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\OpenEXR\IlmImf\dwaLookups.vcxproj">
+      <Project>{46848758-13F8-3B0E-997B-8D48DB03F949}</Project>
+      <Name>dwaLookups</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Half\eLut.vcxproj">
+      <Project>{4AB87A2F-AEF7-3C6E-A6B6-303004E36E5B}</Project>
+      <Name>eLut</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\tests\ftest.vcxproj">
+      <Project>{EE6340CE-5193-3BF6-92EF-13E8A4AA1C04}</Project>
+      <Name>ftest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\glog\glog.vcxproj">
+      <Project>{6DFCD57B-B49A-3B4C-ACDF-44133A0C5E40}</Project>
+      <Name>glog</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\tests\halftest.vcxproj">
+      <Project>{96A7EE14-C05B-3A0B-94C7-8259688D1BB1}</Project>
+      <Name>halftest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\imgtool.vcxproj">
+      <Project>{ACC8A3B9-5EAD-343D-8BE6-3BDCEAD498CD}</Project>
+      <Name>imgtool</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\glog\logging_unittest.vcxproj">
+      <Project>{81458F8B-8DF1-30DC-A2DF-8F034325E980}</Project>
+      <Name>logging_unittest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\obj2pbrt.vcxproj">
+      <Project>{427C9167-3931-3868-A85A-BCA63BA58123}</Project>
+      <Name>obj2pbrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\pbrt.vcxproj">
+      <Project>{23307831-50FB-38D4-AB43-B32C71807F64}</Project>
+      <Name>pbrt</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\pbrt_exe.vcxproj">
+      <Project>{CA8E41A2-0F9D-3558-B04D-2D6B5DDA61EA}</Project>
+      <Name>pbrt_exe</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\pbrt_test.vcxproj">
+      <Project>{C1590DF5-169C-3511-A9BB-E94D6DB8A66F}</Project>
+      <Name>pbrt_test</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\utils\ptxinfo.vcxproj">
+      <Project>{EF94A051-CD1F-3D0E-BD00-CBF5A02534CB}</Project>
+      <Name>ptxinfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\tests\rtest.vcxproj">
+      <Project>{04E8B2CC-EFEC-3054-BD84-8635F7C5839B}</Project>
+      <Name>rtest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\glog\stl_logging_unittest.vcxproj">
+      <Project>{380DB3C5-8CEA-34D7-83F8-60404ED2A073}</Project>
+      <Name>stl_logging_unittest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\openexr\IlmBase\Half\toFloat.vcxproj">
+      <Project>{0E420F48-ACA3-390F-94AC-6D2F0E1F96FC}</Project>
+      <Name>toFloat</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\glog\utilities_unittest.vcxproj">
+      <Project>{C19B88D5-7F13-3004-8738-2EDF3397B925}</Project>
+      <Name>utilities_unittest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\ptex\src\tests\wtest.vcxproj">
+      <Project>{3AE3BFD0-AA11-30BE-AC58-CB33F7D5C20A}</Project>
+      <Name>wtest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Software\PBRT\PBRT Build\src\ext\zlib\zlibstatic.vcxproj">
+      <Project>{6B013B3A-3290-358E-8106-FBC39005B78F}</Project>
+      <Name>zlibstatic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

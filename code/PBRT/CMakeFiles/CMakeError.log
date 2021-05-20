@@ -1,0 +1,941 @@
+Determining if the include file pthread.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_576c2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_576c2.dir\Debug\\" /Fd"cmTC_576c2.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_576c2.vcxproj]
+
+
+
+Determining if files alloca.h exist failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_efae6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  HAVE_ALLOCA_H.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_efae6.dir\Debug\\" /Fd"cmTC_efae6.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckIncludeFiles\HAVE_ALLOCA_H.c(2,10): fatal error C1083: Cannot open include file: 'alloca.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_efae6.vcxproj]
+
+
+Source:
+/* */
+#include <alloca.h>
+
+
+int main(void){return 0;}
+
+Performing C++ SOURCE FILE Test HAVE_ITIMER failed with the following compile output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_292c8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_ITIMER /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_292c8.dir\Debug\\" /Fd"cmTC_292c8.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(4,10): fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_292c8.vcxproj]
+
+
+...and run output:
+
+Return value: 1
+Source file was:
+
+#include <signal.h>
+#include <string.h>
+#include <sys/time.h>
+void ReportProfileSample(int, siginfo_t *, void *) { }
+int main() {
+    struct sigaction sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_sigaction = ReportProfileSample;
+    sa.sa_flags = SA_RESTART | SA_SIGINFO;
+    sigemptyset(&sa.sa_mask);
+    sigaction(SIGPROF, &sa, NULL);
+    static struct itimerval timer;
+    return setitimer(ITIMER_PROF, &timer, NULL) == 0 ? 0 : 1;
+}
+
+Performing C++ SOURCE FILE Test HAVE_MMAP failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_90914.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_MMAP /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_90914.dir\Debug\\" /Fd"cmTC_90914.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(3,10): fatal error C1083: Cannot open include file: 'sys/mman.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_90914.vcxproj]
+
+
+Source file was:
+
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+int main() {
+   int fd = open("foo", O_RDONLY);
+   struct stat s;
+   fstat(fd, &s);
+   size_t len = s.st_size;
+   void *ptr = mmap(0, len, PROT_READ, MAP_FILE | MAP_SHARED, fd, 0);
+   munmap(ptr, len);   
+}
+
+Performing C++ SOURCE FILE Test HAVE_ATTRIBUTE_NOINLINE failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c4138.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_ATTRIBUTE_NOINLINE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c4138.dir\Debug\\" /Fd"cmTC_c4138.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(1,16): error C2065: 'noinline': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c4138.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(1,25): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c4138.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(1,32): error C2448: '__attribute__': function-style initializer appears to be a function definition [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c4138.vcxproj]
+
+
+Source file was:
+__attribute__((noinline)) void foo() { }
+int main() { }
+Performing C++ SOURCE FILE Test HAVE_POSIX_MEMALIGN failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_f6afe.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_POSIX_MEMALIGN /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f6afe.dir\Debug\\" /Fd"cmTC_f6afe.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(5,3): error C3861: 'posix_memalign': identifier not found [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_f6afe.vcxproj]
+
+
+Source file was:
+
+#include <stdlib.h>
+int main() {
+  void *ptr;
+  posix_memalign(&ptr, 32, 1024);
+} 
+Performing C++ SOURCE FILE Test HAVE_MEMALIGN failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_a5ac7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_MEMALIGN /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a5ac7.dir\Debug\\" /Fd"cmTC_a5ac7.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(4,17): error C3861: 'memalign': identifier not found [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_a5ac7.vcxproj]
+
+
+Source file was:
+
+#include <malloc.h>
+int main() {
+    void *ptr = memalign(32, 1024);
+} 
+Performing C++ SOURCE FILE Test HAVE___THREAD failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_a8fe0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___THREAD /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_a8fe0.dir\Debug\\" /Fd"cmTC_a8fe0.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(2,10): error C2144: syntax error: 'int' should be preceded by ';' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_a8fe0.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(2,14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_a8fe0.vcxproj]
+
+
+Source file was:
+
+__thread int x; int main() { }
+
+Determining size of off64_t failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_9709b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  OFF64_T.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D _LARGEFILE64_SOURCE=1 /D HAVE_SYS_TYPES_H /D HAVE_STDINT_H /D HAVE_STDDEF_H /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9709b.dir\Debug\\" /Fd"cmTC_9709b.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c(29,12): error C2065: 'off64_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9709b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c(30,12): error C2065: 'off64_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9709b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c(31,12): error C2065: 'off64_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9709b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c(32,12): error C2065: 'off64_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9709b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\OFF64_T.c(33,12): error C2065: 'off64_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9709b.vcxproj]
+
+
+D:/Software/PBRT/PBRT Build/CMakeFiles/CheckTypeSize/OFF64_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(off64_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function fseeko exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_face2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fseeko /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_face2.dir\Debug\\" /Fd"cmTC_face2.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol fseeko referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_face2.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_face2.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_face2.vcxproj]
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0092b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0092b.dir\Debug\\" /Fd"cmTC_0092b.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_0092b.vcxproj]
+
+
+
+Performing C++ SOURCE FILE Test HAVE_GCC_INLINE_ASM_AVX failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_2b257.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_GCC_INLINE_ASM_AVX /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_2b257.dir\Debug\\" /Fd"cmTC_2b257.dir\Debug\vc142.pdb" /Gd /TP /wd4275 /wd4267 /wd4244 /wd4477 /wd4996 /wd4800 /wd4334 /wd4251 /wd4305 /wd4302 /wd4311 /wd4018 /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(13,1): fatal error C1189: #error:  No GCC style inline asm supported for AVX instructions [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_2b257.vcxproj]
+
+
+Source file was:
+
+	int main()
+	{
+	 #if defined(__GNUC__) && defined(__SSE2__)
+		 int n   = 0;
+		 int eax = 0;
+		 int edx = 0;
+		 __asm__(
+			 "xgetbv     ;"
+			 "vzeroupper  "
+			 : "=a"(eax), "=d"(edx) : "c"(n) : );
+	 #else
+		 #error No GCC style inline asm supported for AVX instructions
+	 #endif
+	}
+	
+Performing C++ SOURCE FILE Test HAVE_SYSCONF_NPROCESSORS_ONLN failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_fccec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_SYSCONF_NPROCESSORS_ONLN /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fccec.dir\Debug\\" /Fd"cmTC_fccec.dir\Debug\vc142.pdb" /Gd /TP /wd4275 /wd4267 /wd4244 /wd4477 /wd4996 /wd4800 /wd4334 /wd4251 /wd4305 /wd4302 /wd4311 /wd4018 /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(2,14): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_fccec.vcxproj]
+
+
+Source file was:
+
+    #include <unistd.h>
+    int main()
+    {
+        sysconf(_SC_NPROCESSORS_ONLN);
+    }
+    
+Determining if the include file dlfcn.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_ed2cf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ed2cf.dir\Debug\\" /Fd"cmTC_ed2cf.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'dlfcn.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_ed2cf.vcxproj]
+
+
+
+Determining if the include file execinfo.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_211b5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_211b5.dir\Debug\\" /Fd"cmTC_211b5.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'execinfo.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_211b5.vcxproj]
+
+
+
+Determining if the include file glob.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_8c3e0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8c3e0.dir\Debug\\" /Fd"cmTC_8c3e0.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'glob.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_8c3e0.vcxproj]
+
+
+
+Determining if the include file libunwind.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_79bad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_79bad.dir\Debug\\" /Fd"cmTC_79bad.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'libunwind.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_79bad.vcxproj]
+
+
+
+Determining if the include file pwd.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d783a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d783a.dir\Debug\\" /Fd"cmTC_d783a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'pwd.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_d783a.vcxproj]
+
+
+
+Determining if the include file strings.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_3e619.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3e619.dir\Debug\\" /Fd"cmTC_3e619.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'strings.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_3e619.vcxproj]
+
+
+
+Determining if the include file sys/syscall.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_e15e3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e15e3.dir\Debug\\" /Fd"cmTC_e15e3.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/syscall.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_e15e3.vcxproj]
+
+
+
+Determining if the include file sys/time.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d13b5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d13b5.dir\Debug\\" /Fd"cmTC_d13b5.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/time.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_d13b5.vcxproj]
+
+
+
+Determining if the include file sys/utsname.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_a048e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a048e.dir\Debug\\" /Fd"cmTC_a048e.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'sys/utsname.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_a048e.vcxproj]
+
+
+
+Determining if the include file syscall.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0206c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0206c.dir\Debug\\" /Fd"cmTC_0206c.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'syscall.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_0206c.vcxproj]
+
+
+
+Determining if the include file syslog.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_255f4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_255f4.dir\Debug\\" /Fd"cmTC_255f4.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'syslog.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_255f4.vcxproj]
+
+
+
+Determining if the include file ucontext.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_971b8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_971b8.dir\Debug\\" /Fd"cmTC_971b8.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'ucontext.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_971b8.vcxproj]
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_9d0a4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9d0a4.dir\Debug\\" /Fd"cmTC_9d0a4.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9d0a4.vcxproj]
+
+
+
+Determining if the include file unwind.h exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_e90ee.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e90ee.dir\Debug\\" /Fd"cmTC_e90ee.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1,10): fatal error C1083: Cannot open include file: 'unwind.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_e90ee.vcxproj]
+
+
+
+Determining if the include file ext/hash_map exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_882ec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_882ec.dir\Debug\\" /Fd"cmTC_882ec.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx(1,10): fatal error C1083: Cannot open include file: 'ext/hash_map': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_882ec.vcxproj]
+
+
+
+Determining if the include file ext/hash_set exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_e84d2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e84d2.dir\Debug\\" /Fd"cmTC_e84d2.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx(1,10): fatal error C1083: Cannot open include file: 'ext/hash_set': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_e84d2.vcxproj]
+
+
+
+Determining if the include file ext/slist exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_71546.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_71546.dir\Debug\\" /Fd"cmTC_71546.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx(1,10): fatal error C1083: Cannot open include file: 'ext/slist': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_71546.vcxproj]
+
+
+
+Determining if the include file tr1/unordered_map exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_68bed.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_68bed.dir\Debug\\" /Fd"cmTC_68bed.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx(1,10): fatal error C1083: Cannot open include file: 'tr1/unordered_map': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_68bed.vcxproj]
+
+
+
+Determining if the include file tr1/unordered_set exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_06c3d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckIncludeFile.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_06c3d.dir\Debug\\" /Fd"cmTC_06c3d.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\CheckIncludeFile.cxx(1,10): fatal error C1083: Cannot open include file: 'tr1/unordered_set': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_06c3d.vcxproj]
+
+
+
+Determining size of u_int16_t failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c06ae.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  HAVE_U_INT16_T.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c06ae.dir\Debug\\" /Fd"cmTC_c06ae.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c(29,12): error C2065: 'u_int16_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c06ae.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c(30,12): error C2065: 'u_int16_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c06ae.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c(31,12): error C2065: 'u_int16_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c06ae.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c(32,12): error C2065: 'u_int16_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c06ae.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CheckTypeSize\HAVE_U_INT16_T.c(33,12): error C2065: 'u_int16_t': undeclared identifier [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c06ae.vcxproj]
+
+
+D:/Software/PBRT/PBRT Build/CMakeFiles/CheckTypeSize/HAVE_U_INT16_T.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(u_int16_t))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function dladdr exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_3b8b4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=dladdr /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3b8b4.dir\Debug\\" /Fd"cmTC_3b8b4.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol dladdr referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_3b8b4.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_3b8b4.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_3b8b4.vcxproj]
+
+
+
+Determining if the function fcntl exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0f080.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=fcntl /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f080.dir\Debug\\" /Fd"cmTC_0f080.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol fcntl referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_0f080.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_0f080.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_0f080.vcxproj]
+
+
+
+Determining if the function pread exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_1841a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pread /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_1841a.dir\Debug\\" /Fd"cmTC_1841a.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol pread referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_1841a.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_1841a.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_1841a.vcxproj]
+
+
+
+Determining if the function pwrite exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_55a53.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pwrite /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_55a53.dir\Debug\\" /Fd"cmTC_55a53.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol pwrite referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_55a53.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_55a53.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_55a53.vcxproj]
+
+
+
+Determining if the function sigaction exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_3ff97.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=sigaction /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3ff97.dir\Debug\\" /Fd"cmTC_3ff97.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol sigaction referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_3ff97.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_3ff97.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_3ff97.vcxproj]
+
+
+
+Determining if the function sigaltstack exists failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_c8ce7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=sigaltstack /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c8ce7.dir\Debug\\" /Fd"cmTC_c8ce7.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol sigaltstack referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c8ce7.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_c8ce7.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_c8ce7.vcxproj]
+
+
+
+Performing C++ SOURCE FILE Test HAVE_NO_DEPRECATED failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_935be.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_NO_DEPRECATED /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_935be.dir\Debug\\" /Fd"cmTC_935be.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue  -Wno-deprecated "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+cl : command line error D8021: invalid numeric argument '/Wno-deprecated' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_935be.vcxproj]
+
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test HAVE_NO_UNNAMED_TYPE_TEMPLATE_ARGS failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_aff6e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_NO_UNNAMED_TYPE_TEMPLATE_ARGS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_aff6e.dir\Debug\\" /Fd"cmTC_aff6e.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue  -Wno-unnamed-type-template-args "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+cl : command line error D8021: invalid numeric argument '/Wno-unnamed-type-template-args' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_aff6e.vcxproj]
+
+
+Source file was:
+int main() { return 0; }
+Determining if the function get_static_proc_name exists in the unwind failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_d1074.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  CheckFunctionExists.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=get_static_proc_name /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_d1074.dir\Debug\\" /Fd"cmTC_d1074.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\Cmake\share\cmake-3.20\Modules\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'unwind.lib' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_d1074.vcxproj]
+
+
+
+Performing C SOURCE FILE Test HAVE___ATTRIBUTE__ failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_53c0c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___ATTRIBUTE__ /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_53c0c.dir\Debug\\" /Fd"cmTC_53c0c.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2061: syntax error: identifier '__attribute__' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_53c0c.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2059: syntax error: ';' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_53c0c.vcxproj]
+
+
+Source file was:
+
+#include <stdlib.h>
+static void foo(void) __attribute__ ((unused));
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE___ATTRIBUTE__VISIBILITY_DEFAULT failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_6af2d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___ATTRIBUTE__VISIBILITY_DEFAULT /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6af2d.dir\Debug\\" /Fd"cmTC_6af2d.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2061: syntax error: identifier '__attribute__' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2059: syntax error: ';' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,50): error C2143: syntax error: missing ')' before 'string' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,59): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,60): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,61): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_6af2d.vcxproj]
+
+
+Source file was:
+
+#include <stdlib.h>
+static void foo(void) __attribute__ ((visibility("default")));
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE___ATTRIBUTE__VISIBILITY_HIDDEN failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_4db4b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___ATTRIBUTE__VISIBILITY_HIDDEN /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4db4b.dir\Debug\\" /Fd"cmTC_4db4b.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2061: syntax error: identifier '__attribute__' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,23): error C2059: syntax error: ';' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,50): error C2143: syntax error: missing ')' before 'string' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,58): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,59): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,60): error C2059: syntax error: ')' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_4db4b.vcxproj]
+
+
+Source file was:
+
+#include <stdlib.h>
+static void foo(void) __attribute__ ((visibility("hidden")));
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test HAVE___BUILTIN_EXPECT failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_9be12.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___BUILTIN_EXPECT /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9be12.dir\Debug\\" /Fd"cmTC_9be12.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(2,38): warning C4013: '__builtin_expect' undefined; assuming extern returning int [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9be12.vcxproj]
+src.obj : error LNK2019: unresolved external symbol __builtin_expect referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9be12.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_9be12.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_9be12.vcxproj]
+
+
+Source file was:
+
+int main(void) { if (__builtin_expect(0, 0)) return 1; return 0; }
+
+Performing C SOURCE FILE Test HAVE___SYNC_VAL_COMPARE_AND_SWAP failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_28737.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE___SYNC_VAL_COMPARE_AND_SWAP /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_28737.dir\Debug\\" /Fd"cmTC_28737.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(4,41): warning C4013: '__sync_val_compare_and_swap' undefined; assuming extern returning int [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_28737.vcxproj]
+src.obj : error LNK2019: unresolved external symbol __sync_val_compare_and_swap referenced in function main [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_28737.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\Debug\cmTC_28737.exe : fatal error LNK1120: 1 unresolved externals [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_28737.vcxproj]
+
+
+Source file was:
+
+int main(void)
+{
+  int a; if (__sync_val_compare_and_swap(&a, 0, 1)) return 1; return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_RWLOCK failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_11fd3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.c
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D HAVE_RWLOCK /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_11fd3.dir\Debug\\" /Fd"cmTC_11fd3.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.c(3,10): fatal error C1083: Cannot open include file: 'pthread.h': No such file or directory [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_11fd3.vcxproj]
+
+
+Source file was:
+
+#define _XOPEN_SOURCE 500
+#include <pthread.h>
+int main(void)
+{
+  pthread_rwlock_t l;
+  pthread_rwlock_init(&l, NULL);
+  pthread_rwlock_rdlock(&l);
+  return 0;
+}
+
+Performing C++ SOURCE FILE Test STL_NO_NAMESPACE failed with the following output:
+Change Dir: D:/Software/PBRT/PBRT Build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_cf29b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET Framework
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.28.29337 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  src.cxx
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D STL_NO_NAMESPACE /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_cf29b.dir\Debug\\" /Fd"cmTC_cf29b.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx"
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(3,7): error C2143: syntax error: missing ';' before '<' [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_cf29b.vcxproj]
+D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\src.cxx(3,7): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int [D:\Software\PBRT\PBRT Build\CMakeFiles\CMakeTmp\cmTC_cf29b.vcxproj]
+
+
+Source file was:
+
+#include <vector>
+vector<int> t; int main() { }
+

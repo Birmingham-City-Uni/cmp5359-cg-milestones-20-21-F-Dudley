@@ -1,0 +1,14 @@
+# CMake generation dependency list for this directory.
+D:/Software/Cmake/share/cmake-3.20/Modules/CTest.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CTestTargets.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CTestUseLaunchers.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckCSourceCompiles.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckIncludeFile.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/CheckLibraryExists.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/DartConfiguration.tcl.in
+D:/Software/Cmake/share/cmake-3.20/Modules/FindPackageHandleStandardArgs.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindPackageMessage.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindThreads.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/FindZLIB.cmake
+D:/Software/Cmake/share/cmake-3.20/Modules/GNUInstallDirs.cmake
+D:/Software/PBRT/pbrt-v3/src/ext/ptex/CMakeLists.txt

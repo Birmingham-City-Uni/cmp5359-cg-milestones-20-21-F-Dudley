@@ -1,0 +1,5 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/src/ext/glog/CMakeLists.txt
+  stl_logging_unittest.cc
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\googletest.h(579,53): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+D:\Software\PBRT\pbrt-v3\src\ext\glog\src\googletest.h(586,55): warning C4290: C++ exception specification ignored except to indicate a function is not __declspec(nothrow)
+  stl_logging_unittest.vcxproj -> D:\Software\PBRT\PBRT Build\src\ext\glog\Release\stl_logging_unittest.exe

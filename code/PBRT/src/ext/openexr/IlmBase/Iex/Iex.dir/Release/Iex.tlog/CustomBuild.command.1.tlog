@@ -1,0 +1,10 @@
+^D:\SOFTWARE\PBRT\PBRT-V3\SRC\EXT\OPENEXR\ILMBASE\IEX\CMAKELISTS.TXT
+setlocal
+D:\Software\Cmake\bin\cmake.exe -SD:/Software/PBRT/pbrt-v3 "-BD:/Software/PBRT/PBRT Build" --check-stamp-file "D:/Software/PBRT/PBRT Build/src/ext/openexr/IlmBase/Iex/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

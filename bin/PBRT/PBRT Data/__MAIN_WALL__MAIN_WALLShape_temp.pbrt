@@ -1,0 +1,34 @@
+# Converted from "E:/Programming Files/C++/UNI - Semester 2/cmp5359-cg-milestones-20-21-F-Dudley/code/Maya Project/Project\renderData\__MAIN_WALL__MAIN_WALLShape.obj" by obj2pbrt
+# Scene bounds: (-7.251538, -0.130931, 10.589294) - (7.457116, 10.109667, 10.589294)
+
+
+# Name "MAIN_WALL"
+AttributeBegin
+# Material unspecified in OBJ file
+Shape "trianglemesh"
+  "point3 P" [ 
+	-7.2515378 10.10966682 10.58929443
+	7.457116127 -0.1309310049 10.58929443
+	-7.2515378 -0.1309310049 10.58929443
+	7.457116127 10.10966682 10.58929443
+]
+  "normal N" [ 
+	0 0 -1
+	0 0 -1
+	0 0 -1
+	0 0 -1
+]
+  "point2 st" [ 
+	0 0
+	1 1
+	0 1
+	1 0
+]
+  "integer indices" [ 
+	0 1 2
+	3 1 0
+	]
+
+AttributeEnd
+
+

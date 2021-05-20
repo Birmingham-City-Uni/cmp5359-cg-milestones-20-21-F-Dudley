@@ -1,0 +1,35 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt
+  analytic_scenes.cpp
+  animatedtransform.cpp
+  bitops.cpp
+  bounds.cpp
+  bsdfs.cpp
+  fileutil.cpp
+  find_interval.cpp
+  fourierbsdf.cpp
+  fp_tests.cpp
+  gtest-all.cc
+  gtest_main.cc
+  hair.cpp
+D:\Software\PBRT\PBRT Build\src\ext\glog\glog/logging.h(714,1): warning C4018: '<': signed/unsigned mismatch
+D:\Software\PBRT\pbrt-v3\src\materials/hair.h(168): message : see reference to function template instantiation 'std::string *google::Check_LTImpl<unsigned __int64,__int64>(const T1 &,const T2 &,const char *)' being compiled
+          with
+          [
+              T1=unsigned __int64,
+              T2=__int64
+          ]
+  hg.cpp
+  imageio.cpp
+  parallel.cpp
+  parser.cpp
+  print.cpp
+  sampling.cpp
+D:\Software\PBRT\pbrt-v3\src\tests\sampling.cpp(154,1): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\tests\sampling.cpp(177,79): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\tests\sampling.cpp(181,72): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\tests\sampling.cpp(185,76): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+D:\Software\PBRT\pbrt-v3\src\tests\sampling.cpp(195,49): warning C4334: '<<': result of 32-bit shift implicitly converted to 64 bits (was 64-bit shift intended?)
+  shapes.cpp
+  spectrum.cpp
+  Generating Code...
+  pbrt_test.vcxproj -> D:\Software\PBRT\PBRT Build\Release\pbrt_test.exe

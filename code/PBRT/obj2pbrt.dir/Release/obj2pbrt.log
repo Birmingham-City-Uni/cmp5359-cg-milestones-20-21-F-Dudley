@@ -1,0 +1,7 @@
+﻿  Building Custom Rule D:/Software/PBRT/pbrt-v3/CMakeLists.txt
+  obj2pbrt.cpp
+D:\Software\PBRT\pbrt-v3\src\tools\obj2pbrt.cpp(1339,68): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Software\PBRT\pbrt-v3\src\tools\obj2pbrt.cpp(1356,34): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\tools\obj2pbrt.cpp(1411,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Software\PBRT\pbrt-v3\src\tools\obj2pbrt.cpp(1497,41): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  obj2pbrt.vcxproj -> D:\Software\PBRT\PBRT Build\Release\obj2pbrt.exe
