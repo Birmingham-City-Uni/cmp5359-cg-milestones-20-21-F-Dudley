@@ -25,8 +25,9 @@ public:
 
 	}
 
-	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, Vec3f _normals, std::shared_ptr<Material> _material) 
-	: vertex0(_vertex0), vertex1(_vertex1), vertex2(_vertex2), normals(_normals), material(_material) {
+	Triangle(Point3f _vertex0, Point3f _vertex1, Point3f _vertex2, Vec3f _normal,
+		std::shared_ptr<Material> _material)
+		: vertex0(_vertex0), vertex1(_vertex1), vertex2(_vertex2), normals(_normal), material(_material) {
 
 	}
 

@@ -20,6 +20,12 @@ Model::Model(const char *filename) : verts_(), faces_() {
             for (int i=0;i<3;i++) iss >> v[i];
             verts_.push_back(v);
         }
+        else if (!line.compare(0, 3, "vn ")) {
+            iss >> trash;
+            Vec3f vn;
+            for (int i = 0; i < 3; i++) iss >> vn[i];
+            vns_.push_back(vn);
+        }
         else if (!line.compare(0, 2, "f ")) { // f v1/vt1/vn1 v2/vt2/vn2 v3/vt3/vn3 
             std::vector<int> f;
             std::vector<int> vns;
@@ -62,7 +68,7 @@ std::vector<int> Model::face(int idx) {
     return faces_[idx];
 }
 
-std::vector<int> Model::vnorms(int idx) {
+std::vector<int> Model::vertex_normal(int idx) {
     return vnorms_[idx];
 }
 
@@ -70,3 +76,6 @@ Vec3f Model::vert(int i) {
     return verts_[i];
 }
 
+Vec3f Model::vn(int i) {
+    return vns_[i];
+}

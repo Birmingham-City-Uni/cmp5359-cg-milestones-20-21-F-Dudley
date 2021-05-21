@@ -34,8 +34,8 @@ void init() {
         "Software Ray Tracer",
         SDL_WINDOWPOS_UNDEFINED,
         SDL_WINDOWPOS_UNDEFINED,
-        640,
-        480,
+        1280,
+        720,
         0
     );
 
@@ -141,7 +141,7 @@ Colour ray_colour(const Ray& _ray, const Colour& _background, const Collideable&
     return emitted + attenuation * ray_colour(scattered, _background, _world, _depth - 1);
 }
 
-void ThreadedRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _spp, int _maxDepth, Camera* _camera) {
+void LineRender(SDL_Surface* _screen, Collideable_List _world, int _y, int _spp, int _maxDepth, Camera* _camera) {
     const float aspectRatio = 16.0 / 9;
     const int imageWidth = _screen->w;
     const int imageHeight = static_cast<int> (imageWidth / aspectRatio);
@@ -188,15 +188,15 @@ void addModelToScene(Collideable_List& _world, Model* _model, Vec3f _modelTransf
         const Vec3f& vertex1 = _model->vert(_model->face(i)[1]);
         const Vec3f& vertex2 = _model->vert(_model->face(i)[2]);
 
-        const Vec3f& normals = Vec3f(_model->vnorms(i)[0], _model->vnorms(i)[1], _model->vnorms(i)[2]);
+        const Vec3f& vertex0n = _model->vn(_model->vertex_normal(i)[0]);
+        const Vec3f& vertex1n = _model->vn(_model->vertex_normal(i)[1]);
+        const Vec3f& vertex2n = _model->vn(_model->vertex_normal(i)[2]);
+
+        const Vec3f& normals = (vertex1 - vertex0).crossProduct(vertex2 - vertex0).normalize();
 
         _world.Add(std::make_shared<Triangle>(vertex0 + _modelTransform, vertex1 + _modelTransform, vertex2 + _modelTransform, normals, _modelMat));
-        std::cout << "Added Triangle: " << i << ". to Scene" << std::endl;
+        //_world.Add(std::make_shared<Triangle>(vertex0 + _modelTransform, vertex1 + _modelTransform, vertex2 + _modelTransform, vertex0n, vertex1n, vertex2n, _modelMat));
     }
-
-    size_t test = _model->vnorms(1).size();
-
-    std::cout << _model->nfaces() << " ----- " << _model->nnorms() << std::endl;
 }
 
 Collideable_List random_scene() {
@@ -261,79 +261,92 @@ Collideable_List bathroom_scene() {
     Collideable_List world_;
     int modelNum = 0;
 
-    // The Model Directory
-    std::string directory = "../Maya Project/Model Exports/";
-
     // Materials
-    auto glassMat = std::make_shared<Dielectric>(2.2);
-    auto plasticMat_white = std::make_shared<Lambertian>(Colour(0.7, 0.7, 0.7));
-    auto carpetMat = std::make_shared<Lambertian>(Colour(0.0, 0.5, 0.0));
+    auto glassMat = std::make_shared<Dielectric>(0.5);
+    auto plasticMat = std::make_shared<Lambertian>(Colour(0.3, 0.2, 0.2));
+    auto carpetMat = std::make_shared<Lambertian>(Colour(12.8 / 255, 5.2 / 255, 1.9 / 255));
     auto metalMat = std::make_shared<Metal>(Colour(0.5, 0.5, 0.5), 0.2);
-    auto mirrorMat = std::make_shared<Metal>(Colour(0.1, 0.1, 0.1), 0.1);
-    auto lightMat = std::make_shared<Diffuse_Light>(Colour(255, 255, 255));
+    auto mirrorMat = std::make_shared<Metal>(Colour(0.1, 0.1, 0.1), 0.05);
+    auto floorMat = std::make_shared<Lambertian>(Colour(50.3 / 255, 43.9 / 255, 20.9 / 255));
+    auto lightMat = std::make_shared<Diffuse_Light>(Colour(200, 200, 200));
 
     // Models and Vectors (if Parent Object)
     Vec3f baseModelPos = Vec3f(0);
 
     
     // Counter Area
-    Model* counter = new Model("../Models/bathroom_Counter.obj");
-    addModelToScene(world_, counter, baseModelPos, carpetMat); modelNum++;
+    Model* counter = new Model("./Assets/Models/bathroom_Counter.obj");
+    addModelToScene(world_, counter, baseModelPos, plasticMat); modelNum++;
         
         
-        Model* counter_light = new Model("../Models/bathroom_Counter_Light.obj");
+        Model* counter_light = new Model("./Assets/Models/bathroom_Counter_Light.obj");
         addModelToScene(world_, counter_light, baseModelPos, lightMat); modelNum++;
 
        
-        //Model* counter_lightMount = new Model("../Models/bathroom_Counter_Light_Mount.obj");
-        //addModelToScene(world_, counter_lightMount, baseModelPos, plasticMat_white); modelNum++;
+        Model* counter_lightMount = new Model("../Models/bathroom_Counter_Light_Mount.obj");
+        addModelToScene(world_, counter_lightMount, baseModelPos, lightMat); modelNum++;
 
         
-        Model* counter_mirrorCover = new Model("../Models/bathroom_Counter_Mirror_Cover.obj");
-        addModelToScene(world_, counter_mirrorCover, baseModelPos, plasticMat_white); modelNum++;
+        Model* counter_mirrorCover = new Model("./Assets/Models/bathroom_Counter_Mirror_Cover.obj");
+        addModelToScene(world_, counter_mirrorCover, baseModelPos, plasticMat); modelNum++;
 
-        Model* counter_mirrorSurface = new Model("../Models/bathroom_Counter_Mirror_Surface.obj");
+        Model* counter_mirrorSurface = new Model("./Assets/Models/bathroom_Counter_Mirror_Surface.obj");
         addModelToScene(world_, counter_mirrorSurface, baseModelPos, mirrorMat); modelNum++;
 
-        //Model* counter_panel = new Model("../Models/bathroom_Counter_Panel.obj");
-        //addModelToScene(world_, counter_panel, baseModelPos, testGreen); modelNum++;
+        Model* counter_panel = new Model("./Assets/Models/bathroom_Counter_Panel.obj");
+        addModelToScene(world_, counter_panel, baseModelPos, plasticMat); modelNum++;
 
-        Model* counter_sink = new Model("../Models/bathroom_Counter_Sink.obj");
+        Model* counter_sink = new Model("./Assets/Models/bathroom_Counter_Sink.obj");
         addModelToScene(world_, counter_sink, baseModelPos, metalMat); modelNum++;
 
-        Model* counter_tap = new Model("../Models/bathroom_Counter_Tap.obj");
+        Model* counter_tap = new Model("./Assets/Models/bathroom_Counter_Tap.obj");
         addModelToScene(world_, counter_tap, baseModelPos, metalMat); modelNum++;
 
-        Model* counter_shelve = new Model("../Models/bathroom_Counter_Shelve.obj");
-        addModelToScene(world_, counter_shelve, baseModelPos, carpetMat);
+        Model* counter_shelve = new Model("./Assets/Models/bathroom_Counter_Shelve.obj");
+        addModelToScene(world_, counter_shelve, baseModelPos, plasticMat); modelNum++;
         
 
-    Model* counterPole_right_outter = new Model("../Models/bathroom_Counter_Pole_Outer.obj");
-    Model* counterPole_right_inner = new Model("../Models/bathroom_Counter_Pole_Inner.obj");
-    addModelToScene(world_, counterPole_right_outter, baseModelPos, plasticMat_white); modelNum++;
+    Model* counterPole_right_outter = new Model("./Assets/Models/bathroom_Counter_Pole_R_Outer.obj");
+    Model* counterPole_right_inner = new Model("./Assets/Models/bathroom_Counter_Pole_R_Inner.obj");
+    addModelToScene(world_, counterPole_right_outter, baseModelPos, plasticMat); modelNum++;
     addModelToScene(world_, counterPole_right_inner, baseModelPos, metalMat); modelNum++;
+
+    Model* counterPole_left_outter = new Model("./Assets/Models/bathroom_Counter_Pole_L_Outer.obj");
+    Model* counterPole_left_inner = new Model("./Assets/Models/bathroom_Counter_Pole_L_Inner.obj");
+    addModelToScene(world_, counterPole_left_outter, baseModelPos, plasticMat);
+    addModelToScene(world_, counterPole_left_inner, baseModelPos, metalMat);
 
     // ----- //
 
     // Shower Area
 
-    Model* showerScreen = new Model("../Models/bathroom_ShowerScreen.obj");
-    addModelToScene(world_, showerScreen, baseModelPos, mirrorMat); modelNum++;
+    Model* showerScreen = new Model("./Assets/Models/bathroom_ShowerScreen.obj");
+    addModelToScene(world_, showerScreen, baseModelPos, floorMat); modelNum++;
 
-    Model* shower = new Model("../Models/bathroom_Shower.obj");
+    Model* showerScreen_Glass = new Model("./Assets/Models/bathroom_ShowerScreen_glass.obj");
+    addModelToScene(world_, showerScreen_Glass, baseModelPos, glassMat); modelNum++;
+
+    Model* showerScreen_Panels = new Model("./Assets/Models/bathroom_ShowerScreen_Panels.obj");
+    addModelToScene(world_, showerScreen_Panels, baseModelPos, plasticMat);
+
+    Model* shower = new Model("./Assets/Models/bathroom_Shower.obj");
     addModelToScene(world_, shower, baseModelPos, metalMat); modelNum++;
+
+    Model* shower_Lights = new Model("./Assets/Models/bathroom_Shower_Lights.obj");
+    addModelToScene(world_, shower_Lights, baseModelPos, lightMat); modelNum++;
 
     // ------ //
     
-    Model* carpet = new Model("../Models/bathroom_Carpet.obj");
+    Model* carpet = new Model("./Assets/Models/bathroom_Carpet.obj");
     addModelToScene(world_, carpet, baseModelPos, carpetMat); modelNum++;
     
-    //Model* walls = new Model("../Models/bathroom_Walls.obj");
-    //addModelToScene(world_, walls, baseModelPos, plasticMat_white); modelNum++;
+    Model* floor = new Model("./Assets/Models/bathroom_Floor.obj");
+    addModelToScene(world_, floor, baseModelPos, floorMat);
 
-    std::cout << "Models All Loaded.\nTOTAL MODELS: " << modelNum << std::endl;
+    Model* walls = new Model("./Assets/Models/bathroom_Walls.obj");
+    addModelToScene(world_, walls, baseModelPos, plasticMat); modelNum++;
 
-    world_.Add(std::make_shared<Sphere>(Vec3f(0, 1, 0), 0.5, lightMat));
+    std::cout << "Loaded All Models.\nTOTAL MODELS: " << modelNum << std::endl;
 
     //return world_;
     return Collideable_List(std::make_shared<BVH_Node>(world_));
@@ -350,7 +363,7 @@ int main(int argc, char **argv)
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = screenSurface->w;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    const int spp = 1;
+    const int spp = 50;
     const int max_depth = 50;
 
     const float scale = 1.f / spp;
@@ -431,21 +444,15 @@ int main(int argc, char **argv)
             }
         }
         
-        
         /*
         {
-            t_start = std::chrono::high_resolution_clock::now();
-
-            unsigned int threadNum = std::thread::hardware_concurrency();
-            std::cout << "Number of Supported Threads: " << threadNum << std::endl;
-
-            ThreadPool pool(1000);
+            ThreadPool pool(std::thread::hardware_concurrency());
 
             int start = screenSurface->h - 1;
-            int step = screenSurface->h / std::thread::hardware_concurrency();
+            //int step = screenSurface->h / std::thread::hardware_concurrency();
             for (int y = 0; y < screenSurface->h - 1; y++)
             {
-                pool.Enqueue(std::bind(ThreadedRender, screenSurface, world, y, spp, max_depth, &camera));
+                pool.Enqueue(std::bind(LineRender, screenSurface, world, y, spp, max_depth, &camera));
             }
 
         }

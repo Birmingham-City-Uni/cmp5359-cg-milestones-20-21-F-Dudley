@@ -185,7 +185,8 @@ Matrix44f lookAt(const Vec3f from, const Vec3f to, const Vec3f _tmp = Vec3f(0, 1
 {
     // TASK 5
     // Calculate forward, right and up vectors
-    Vec3f forward = (from - to).normalize();
+    Vec3f forward = (from - to);
+    forward.normalize();
 
     Vec3f right = _tmp;
     right.normalize();
@@ -221,23 +222,16 @@ Model* model = nullptr;
 
 int main(int argc, char **argv)
 {
-    // Camera Variables
-    //const Vec3f cameraPosition(4.725f, 6.976f, 10.187f);
-    //const Vec3f targetPosition(1.703f, 6.154f, 4.154f);
-    const Vec3f up(0.f, 1.f, 0.f);
-
-    const Vec3f cameraRotation(0);
-
     // Test Cam
-    const Vec3f cameraPosition(1.f, 10, 30.f);
-    const Vec3f targetPosition(0, 6, 4);
+    //const Vec3f cameraPosition(0, 10, 30.f);
+    //const Vec3f targetPosition(0, 6, 4);
 
     if (2 == argc) {
         model = new Model(argv[1]);
     }
     else {
         //model = new Model("../Models/testScene.obj");
-        model = new Model("../Models/bathroom_WholeScene.obj");
+        model = new Model("bathroom_WholeScene.obj");
     }
 
     // initialise SDL2
@@ -263,6 +257,8 @@ int main(int argc, char **argv)
     bool running = true;
     while (running) {
 
+        TGAImage image(screen->w, screen->h, TGAImage::RGB);
+
         // Start timer so we can gather frame generation statistics
         auto t_start = std::chrono::high_resolution_clock::now();
 
@@ -272,6 +268,18 @@ int main(int argc, char **argv)
         // Only required if animating the camera as the depth buffer will need to be recomputed
         for (uint32_t i = 0; i < imageWidth * imageHeight; ++i) depthBuffer[i] = farClippingPlane;
 
+        worldToCamera = { 1,0,0,0,
+                          0,1,0,0,
+                          0,-0.3,0.9,0,
+                          0,0,-3,1
+        };
+
+        // Camera Variables
+        const Vec3f cameraPosition(4.725f, 6.976f, 10.187f);
+        const Vec3f targetPosition(1.703f, 6.154f, 4.154f);
+        const Vec3f up(0.f, 1.f, 0.f);
+
+        const Vec3f cameraRotation(0);
 
         worldToCamera = lookAt(cameraPosition, targetPosition, up).inverse();
 
@@ -374,13 +382,13 @@ int main(int argc, char **argv)
 
                             // The final color is the result of the fraction multiplied by the
                             // checkerboard pattern defined in checker.
-                            const int M = 10;
-                            float checker = (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
-                            float c = 0.3 * (1 - checker) + 0.7 * checker;
-                            nDotView *= c;
+                            //const int M = 10;
+                            //float checker = (fmod(st.x * M, 1.0) > 0.5) ^ (fmod(st.y * M, 1.0) < 0.5);
+                            //float c = 0.3 * (1 - checker) + 0.7 * checker;
+                            //nDotView *= c;
 
                             // Draw to TGAImage.
-
+                            image.set(x, y, TGAColor((unsigned char)(nDotView * 255), (unsigned char)(nDotView * 255), (unsigned char) (nDotView * 255), 255));
 
                             // Set the pixel value on the SDL_Surface that gets drawn to the SDL_Window
                             Uint32 colour = SDL_MapRGB(screen->format, nDotView * 255, nDotView * 255, nDotView * 255);
@@ -390,12 +398,13 @@ int main(int argc, char **argv)
                 }
             }
         }
-
         
         // Calculate frame interval timing
         auto t_end = std::chrono::high_resolution_clock::now();
         auto passedTime = std::chrono::duration<double, std::milli>(t_end - t_start).count();
         std::cerr << "Frame render time:  " << passedTime << " ms" << std::endl;
+
+        image.write_tga_file("rasteriserOutput.tga");
 
         // Create texture from the surface and RenderCopy/Present from backbuffer
         SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, screen);
